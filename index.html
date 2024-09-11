@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome To My World</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Importing Pt Serif from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <style>
         body {
@@ -37,6 +36,13 @@
 
     <header>
         <h1>Welcome To My World</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section id="home">
@@ -51,7 +57,7 @@
 
     <section id="contact">
         <h2>Contact</h2>
-        <form action="submit_form.php" method="post">
+        <form action="https://formspree.io/f/xrbzvgbz" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -63,13 +69,14 @@
 
             <button type="submit">Send</button>
         </form>
+        <p>You'll receive a response shortly after submitting.</p>
     </section>
 
     <footer>
         <p>&copy; 2024 Welcome To My World</p>
     </footer>
 
-    <!-- Matrix effect script -->
+    <!-- Matrix effect script (same as before) -->
     <script>
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
