@@ -1,52 +1,124 @@
-       ```html
-       <!DOCTYPE html>
-       <html lang="en">
-       <head>
-           <meta charset="UTF-8">
-           <meta name="viewport" content="width=device-width, initial-scale=1.0">
-           <title>Welcome To My World</title>
-           <link rel="stylesheet" href="styles.css">
-       </head>
-       <body>
-           <header>
-               <h1>Welcome To My World</h1>
-               <nav>
-                   <ul>
-                       <li><a href="#home">Home</a></li>
-                       <li><a href="#about">About</a></li>
-                       <li><a href="#contact">Contact</a></li>
-                   </ul>
-               </nav>
-           </header>
-       
-           <section id="home">
-               <h2>Home</h2>
-               <p>This is the homepage section. You can add any content you like here.</p>
-           </section>
-       
-           <section id="about">
-               <h2>About</h2>
-               <p>This section is about me. You can add information about yourself or your site here.</p>
-           </section>
-       
-           <section id="contact">
-               <h2>Contact</h2>
-               <form action="submit_form.php" method="post">
-                   <label for="name">Name:</label>
-                   <input type="text" id="name" name="name" required>
-       
-                   <label for="email">Email:</label>
-                   <input type="email" id="email" name="email" required>
-       
-                   <label for="message">Message:</label>
-                   <textarea id="message" name="message" required></textarea>
-       
-                   <button type="submit">Send</button>
-               </form>
-           </section>
-       
-           <footer>
-               <p>&copy; 2024 My Cool Website</p>
-           </footer>
-       </body>
-       </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome To My World</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        header, section, footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Matrix effect canvas -->
+    <canvas id="matrix"></canvas>
+
+    <header>
+        <h1>Welcome To My World</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <h2>Home</h2>
+        <p>This is the homepage section. You can add any content you like here.</p>
+    </section>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>This section is about me. You can add information about yourself or your site here.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form action="submit_form.php" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Welcome To My World</p>
+    </footer>
+
+    <!-- Matrix effect script -->
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+
+        // Make the canvas full screen
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        // The characters (numbers) to fall
+        const characters = '0123456789';
+        const charArray = characters.split('');
+
+        function draw() {
+            // Semi-transparent background
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#0F0'; // Green text
+            ctx.font = `${fontSize}px monospace`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                // Reset the drop to the top after it reaches the bottom
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 30);
+
+        // Adjust canvas size when window is resized
+        window.onresize = function () {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+    </script>
+
+</body>
+</html>
