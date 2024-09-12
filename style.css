@@ -23,6 +23,13 @@ canvas {
 #home, #blog, #contact {
     min-height: 100vh;
     box-sizing: border-box;
+    padding: 40px;
+    margin: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent background for Matrix effect */
+    border-radius: 8px;
+    color: white;
+    position: relative;
+    z-index: 2; /* Ensure content is above canvas */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,18 +42,7 @@ header {
     padding: 20px;
     text-align: center;
     position: relative;
-    z-index: 1; /* Ensure header is on top */
-}
-
-/* Section styles */
-section {
-    padding: 40px;
-    margin: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Transparent background for Matrix effect */
-    border-radius: 8px;
-    color: white;
-    position: relative;
-    z-index: 1; /* Ensure content is above canvas */
+    z-index: 2; /* Ensure header is on top */
 }
 
 /* Footer styles */
@@ -56,5 +52,5 @@ footer {
     background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
     color: #0F0;
     position: relative;
-    z-index: 1;
+    z-index: 2;
 }
