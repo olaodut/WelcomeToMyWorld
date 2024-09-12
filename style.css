@@ -22,12 +22,13 @@ canvas {
 /* Ensure sections fill the viewport */
 #home, #blog, #contact {
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
+    background: rgba(0, 0, 0, 0.7); /* Match section background to blend with matrix */
 }
 
 /* Header styles */
@@ -44,7 +45,6 @@ header {
 section {
     padding: 40px;
     margin: 0; /* Remove default margin */
-    background-color: rgba(0, 0, 0, 0.7); /* Transparent background for Matrix effect */
     border-radius: 8px;
     color: white;
     position: relative;
