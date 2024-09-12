@@ -24,12 +24,13 @@ canvas {
 .content {
     position: relative;
     z-index: 1;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Header styles */
 header {
     text-align: center;
-    padding: 20px;
 }
 
 /* Navigation styles */
