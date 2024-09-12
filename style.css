@@ -26,7 +26,6 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative; /* Ensure sections are positioned relative to their normal flow */
 }
 
 /* Header styles */
@@ -36,7 +35,7 @@ header {
     padding: 20px;
     text-align: center;
     position: relative;
-    z-index: 2; /* Ensure header is on top */
+    z-index: 1; /* Ensure header is on top */
 }
 
 /* Section styles */
@@ -47,7 +46,7 @@ section {
     border-radius: 8px;
     color: white;
     position: relative;
-    z-index: 2; /* Ensure content is above canvas */
+    z-index: 1; /* Ensure content is above canvas */
 }
 
 /* Footer styles */
@@ -57,5 +56,5 @@ footer {
     background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
     color: #0F0;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
