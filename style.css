@@ -15,14 +15,6 @@ header, section, footer {
     padding: 20px;
     box-sizing: border-box;
 }
-
-/* Ensure sections fill the viewport */
-section {
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-}
-
 /* Nav styles */
 nav ul {
     list-style-type: none;
