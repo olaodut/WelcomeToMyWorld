@@ -19,6 +19,17 @@ canvas {
     z-index: -1; /* Ensure canvas stays behind all content */
 }
 
+/* Ensure sections fill the viewport */
+#home, #blog, #contact {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
 /* Header styles */
 header {
     background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
@@ -32,16 +43,12 @@ header {
 /* Section styles */
 section {
     padding: 40px;
-    margin: 0;
+    margin: 0; /* Remove default margin */
     background-color: rgba(0, 0, 0, 0.7); /* Transparent background for Matrix effect */
     border-radius: 8px;
     color: white;
     position: relative;
     z-index: 2; /* Ensure content is above canvas */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
 }
 
 /* Footer styles */
