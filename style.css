@@ -22,18 +22,16 @@ body {
 
 /* Matrix effect canvas */
 .matrix-effect {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Ensure the matrix is visible */
     position: absolute;
     top: 0;
     left: 0;
-    background-image: linear-gradient(90deg, rgba(0, 255, 0, 0.8) 50%, transparent 50%);
-    background-size: 20px 20px;
-    animation: matrix 1s linear infinite;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Dark background to enhance matrix effect */
+    overflow: hidden;
 }
 
-/* Matrix animation */
+/* Matrix effect animation */
 @keyframes matrix {
     0% {
         background-position: 0 0;
@@ -43,12 +41,28 @@ body {
     }
 }
 
+.matrix-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+        90deg,
+        rgba(0, 255, 0, 0.5) 50%,
+        transparent 50%
+    );
+    background-size: 20px 20px;
+    animation: matrix 1s linear infinite;
+}
+
 /* Ensure sections fill the viewport */
 section {
     min-height: 100vh;
     margin: 0;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.7); /* Match section background to blend */
+    background: rgba(0, 0, 0, 0.7); /* Ensure section background blends */
     position: relative;
     z-index: 1; /* Ensure content is on top of the matrix */
 }
