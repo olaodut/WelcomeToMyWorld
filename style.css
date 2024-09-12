@@ -1,19 +1,20 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'PT Serif', serif; /* Changed to match the website's style */
     margin: 0;
     padding: 0;
-    background-color: black; /* Changed to black for Matrix effect */
+    background-color: black; /* Matrix effect background */
     overflow: hidden; /* Prevent scrollbars */
     color: white; /* Ensure text is visible on black background */
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
+    background-color: #111; /* Darker header background */
+    color: #0F0; /* Green color to match matrix effect */
+    padding: 20px 0;
     text-align: center;
     position: relative;
     z-index: 1;
+    font-size: 2em; /* Larger header font */
 }
 
 nav ul {
@@ -23,22 +24,29 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 nav ul li a {
-    color: #fff;
+    color: #0F0; /* Matrix green for nav links */
     text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em; /* Slightly larger for better visibility */
+}
+
+nav ul li a:hover {
+    text-decoration: underline; /* Underline on hover */
 }
 
 section {
-    padding: 20px;
-    margin: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    color: black; /* Ensure readability on white section background */
+    padding: 40px;
+    margin: 40px;
+    background-color: #222; /* Dark background for contrast */
+    border-radius: 8px;
+    color: #ddd; /* Softer white for readability */
     position: relative;
     z-index: 1;
+    font-size: 1.1em; /* Slightly larger for readability */
 }
 
 form {
@@ -48,32 +56,45 @@ form {
 
 form label {
     margin-top: 10px;
+    color: #0F0; /* Green for consistency */
 }
 
 form input, form textarea {
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #0F0; /* Green border */
     border-radius: 3px;
+    background-color: #333; /* Dark background for inputs */
+    color: white; /* White text for visibility */
+}
+
+form input::placeholder, form textarea::placeholder {
+    color: #aaa; /* Light placeholder text */
 }
 
 form button {
     margin-top: 10px;
     padding: 10px;
-    background-color: #333;
-    color: #fff;
+    background-color: #0F0; /* Green button background */
+    color: black; /* Dark text for contrast */
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #00cc00; /* Slightly brighter on hover */
 }
 
 footer {
     text-align: center;
-    padding: 10px 0;
-    background-color: #333;
-    color: #fff;
+    padding: 20px 0;
+    background-color: #111; /* Dark footer */
+    color: #0F0; /* Green text in footer */
     position: relative;
     z-index: 1;
+    font-size: 0.9em; /* Slightly smaller text */
 }
 
 /* Matrix Effect */
