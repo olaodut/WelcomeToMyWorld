@@ -1,40 +1,30 @@
-/* General styles */
 body {
     margin: 0;
-    overflow: auto; /* Enable scrollbars */
-    background-color: black;
+    padding: 0;
+    overflow: auto; /* Allow scrollbars */
+    background: transparent; /* Ensure background is transparent to show matrix */
     color: white;
     font-family: 'PT Serif', serif;
+    position: relative;
+    z-index: 1; /* Ensure body content stays on top */
 }
 
-/* Matrix Effect */
 canvas {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /* Full viewport width */
-    height: 100vh; /* Full viewport height */
+    width: 100%;
+    height: 100%;
     z-index: -1; /* Ensure canvas stays behind all content */
 }
 
-/* Ensure sections fill the viewport */
-#home, #blog, #contact {
-    padding: 40px;
-    box-sizing: border-box;
-    background: rgba(0, 0, 0, 0.7); /* Match section background to blend with matrix */
-}
-
-/* Header styles */
-header {
-    background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
-    color: #0F0; /* Matrix green */
-    padding: 20px;
-    text-align: center;
+header, section, footer {
     position: relative;
-    z-index: 1; /* Ensure header is on top */
+    z-index: 2; /* Ensure content is above canvas */
+    text-align: center;
+    padding: 20px;
 }
 
-/* Navigation styles */
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -51,22 +41,28 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* Section styles */
-section {
-    padding: 40px;
-    margin: 0; /* Remove default margin */
-    border-radius: 8px;
-    color: white;
-    position: relative;
-    z-index: 1; /* Ensure content is above canvas */
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    text-align: left;
 }
 
-/* Footer styles */
+form label {
+    margin-top: 10px;
+}
+
+form input, form textarea, form button {
+    margin-top: 5px;
+}
+
+article {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
 footer {
-    text-align: center;
-    padding: 20px;
     background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
+    padding: 20px;
     color: #0F0;
-    position: relative;
-    z-index: 1;
 }
