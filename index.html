@@ -71,12 +71,12 @@
     <!-- Matrix effect script -->
     <script>
         const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('3d');
+        const ctx = canvas.getContext('2d');
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
-        const fontSize = 16;
+        const fontSize = 96;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
 
