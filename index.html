@@ -6,13 +6,93 @@
     <title>Welcome To My World</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: auto; /* Allow scrollbars */
+            background-color: black;
+            color: white;
+            font-family: 'PT Serif', serif;
+            position: relative;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none; /* Allow interactions with content */
+        }
+
+        /* Ensure sections fill the viewport */
+        section {
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7); /* Ensure section background blends */
+            position: relative;
+            z-index: 1; /* Ensure content is on top of the matrix */
+        }
+
+        /* Header styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* Nav styles */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Form styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input, form textarea, form button {
+            margin-top: 5px;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Matrix effect container -->
-    <div class="matrix-container">
-        <div class="matrix-effect"></div>
-    </div>
+    <!-- Matrix effect canvas -->
+    <canvas id="matrix"></canvas>
 
     <header>
         <h1>Welcome To My World</h1>
@@ -71,5 +151,41 @@
         <p>&copy; 2024 Welcome To My World</p>
     </footer>
 
+    <!-- Matrix effect script -->
+    <script>
+        const canvas = document.getElementById('matrix');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+        const characters = '0123456789';
+        const charArray = characters.split('');
+
+        function draw() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#0F0';
+            ctx.font = `${fontSize}px monospace`;
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        setInterval(draw, 30);
+
+        window.onresize = function () {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        };
+    </script>
 </body>
 </html>
