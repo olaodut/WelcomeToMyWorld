@@ -55,8 +55,3 @@ form label {
 form input, form textarea, form button {
     margin-top: 5px;
 }
-
-article {
-    margin-bottom: 20px;
-    text-align: left;
-}
