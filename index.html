@@ -8,7 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <!-- Matrix effect canvas -->
+    <canvas id="matrix"></canvas>
 
     <header>
         <h1>Welcome To My World</h1>
@@ -70,7 +71,7 @@
     <!-- Matrix effect script -->
     <script>
         const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('3d');
 
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
