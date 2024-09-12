@@ -26,6 +26,7 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; /* Ensure sections are positioned relative to their normal flow */
 }
 
 /* Header styles */
