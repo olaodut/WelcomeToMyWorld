@@ -1,20 +1,21 @@
-/* Global settings */
+/* General styles */
 body {
     font-family: 'PT Serif', serif;
     margin: 0;
     padding: 0;
     background-color: black;
     color: white;
+    overflow: hidden; /* Prevent scrollbars */
     position: relative;
 }
 
 header {
-    background-color: #111;
+    background-color: rgba(0, 0, 0, 0.8); /* Slight transparency to see matrix effect */
     color: #0F0;
     padding: 20px;
     text-align: center;
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensure it stays above the canvas */
 }
 
 nav ul {
@@ -39,22 +40,22 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Section styling */
+/* Section styles */
 section {
     padding: 40px;
     margin: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent black */
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black for matrix effect visibility */
     border-radius: 8px;
-    color: #fff;
+    color: white;
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensure section stays above canvas */
 }
 
 h2, h3 {
     color: #0F0; /* Green headings */
 }
 
-/* Form styling */
+/* Form styles */
 form {
     display: flex;
     flex-direction: column;
@@ -89,11 +90,11 @@ form button:hover {
     background-color: #00cc00;
 }
 
-/* Footer styling */
+/* Footer styles */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #111;
+    background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
     color: #0F0;
     position: relative;
     z-index: 2;
@@ -106,19 +107,12 @@ canvas {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Canvas behind all other content */
-    pointer-events: none; /* Ensure content is clickable */
-}
-
-html, body {
-    height: 100%;
-    overflow: hidden; /* Prevent scrollbars */
+    z-index: 1; /* Canvas behind all content */
+    pointer-events: none; /* Make sure the canvas doesn't interfere with clicks */
 }
 
 /* Ensure sections fill the viewport */
 #home, #blog, #contact {
     min-height: 100vh;
     box-sizing: border-box;
-    position: relative;
-    z-index: 2;
 }
