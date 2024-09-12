@@ -8,6 +8,7 @@ body {
     overflow: auto; /* Allow scrolling */
     position: relative;
 }
+
 /* Header styles */
 header {
     background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
@@ -15,7 +16,6 @@ header {
     padding: 20px;
     text-align: center;
     position: relative;
-    z-index: 2; /* Ensure header is on top */
 }
 
 /* Section styles */
