@@ -9,14 +9,11 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
-            overflow: auto; /* Allow scrollbars */
+            overflow: hidden;
             background-color: black;
             color: white;
             font-family: 'PT Serif', serif;
-            position: relative;
         }
-
         canvas {
             position: fixed;
             top: 0;
@@ -24,68 +21,41 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            pointer-events: none; /* Allow interactions with content */
         }
-
-        /* Ensure sections fill the viewport */
-        section {
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.7); /* Ensure section background blends */
+        header, section, footer {
             position: relative;
-            z-index: 1; /* Ensure content is on top of the matrix */
-        }
-
-        /* Header styles */
-        header {
-            background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
-            color: white;
-            padding: 20px;
-            text-align: center;
             z-index: 1;
-            position: relative;
+            text-align: center;
+            padding: 20px;
         }
-
-        /* Nav styles */
         nav ul {
             list-style-type: none;
             padding: 0;
         }
-
         nav ul li {
             display: inline;
             margin-right: 15px;
         }
-
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
         }
-
-        /* Form styles */
         form {
             display: flex;
             flex-direction: column;
             margin-top: 20px;
             text-align: left;
         }
-
         form label {
             margin-top: 10px;
         }
-
         form input, form textarea, form button {
             margin-top: 5px;
         }
-
-        /* Footer styles */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
+        article {
+            margin-bottom: 20px;
+            text-align: left;
         }
     </style>
 </head>
@@ -100,6 +70,8 @@
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#blog">Blog</a></li>
+                <li><a href="#forum">Forum</a></li>
+                <li><a href="#register">Register</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -118,16 +90,39 @@
             <p><strong>Why Cybersecurity?</strong><br>
             Cybersecurity isn’t just about protecting data; it’s about safeguarding our digital lives. From personal information to corporate secrets, everything is vulnerable without the right defenses. That’s why I'm passionate about growing this space — to create a community where we can learn together, exchange ideas, and empower each other to become better defenders of the digital world.</p>
             <p><strong>What to Expect</strong><br>
-            In this blog, I’ll cover a variety of topics ranging from threat hunting to vulnerability management, penetration testing, and beyond. Here are a few things you can look forward to:</p>
+            In this blog, I’ll cover a variety of topics ranging from threat hunting to vulnerability management, penetration testing, and beyond. Here are a few things you can look forward to:
             <ul>
                 <li>Practical Tutorials: Step-by-step guides on tools like Burp Suite, Nmap, and Kali Linux.</li>
                 <li>Latest Threat Intelligence: Stay updated on emerging cybersecurity threats and how to mitigate them.</li>
                 <li>Scripts and Projects: Get access to custom scripts and projects I’ve worked on, such as the <i>Ola-CyberClock</i> and others designed to improve security practices.</li>
                 <li>Community Collaboration: I’ll share tips on how to engage in platforms like TryHackMe, and how we can support each other in certification and training efforts.</li>
             </ul>
+            </p>
             <p><strong>Growing Together</strong><br>
             This journey isn’t just about one person; it’s about building a strong, engaged community. I encourage you to comment, share your thoughts, and even suggest topics you’d like to see covered. Let’s make cybersecurity more accessible and foster an environment of continuous learning.</p>
         </article>
+        <!-- Add more blog articles here in future -->
+    </section>
+
+    <section id="forum">
+        <h2>Forum</h2>
+        <p>Forum topics and discussions go here...</p>
+    </section>
+
+    <section id="register">
+        <h2>Register</h2>
+        <form action="register.php" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Register</button>
+        </form>
     </section>
 
     <section id="contact">
@@ -144,7 +139,7 @@
 
             <button type="submit">Send</button>
         </form>
-        <p>Be kind to yourself</p>
+        <p>be kind to yourself</p>
     </section>
 
     <footer>
@@ -155,24 +150,28 @@
     <script>
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
+
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
 
         const fontSize = 16;
         const columns = canvas.width / fontSize;
         const drops = Array(Math.floor(columns)).fill(1);
+
         const characters = '0123456789';
         const charArray = characters.split('');
 
         function draw() {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
+
             ctx.fillStyle = '#0F0';
             ctx.font = `${fontSize}px monospace`;
 
             for (let i = 0; i < drops.length; i++) {
                 const text = charArray[Math.floor(Math.random() * charArray.length)];
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
                 if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
                 }
@@ -187,5 +186,6 @@
             canvas.height = window.innerHeight;
         };
     </script>
+
 </body>
 </html>
