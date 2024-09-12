@@ -1,20 +1,20 @@
 body {
-    font-family: 'PT Serif', serif; /* Changed to match the website's style */
+    font-family: 'PT Serif', serif; /* Use your preferred font */
     margin: 0;
     padding: 0;
-    background-color: black; /* Matrix effect background */
+    background-color: black; /* Black background for matrix effect */
     overflow: hidden; /* Prevent scrollbars */
-    color: white; /* Ensure text is visible on black background */
+    color: white; /* White text for contrast */
 }
 
 header {
     background-color: #111; /* Darker header background */
-    color: #0F0; /* Green color to match matrix effect */
+    color: #0F0; /* Matrix green for text */
     padding: 20px 0;
     text-align: center;
-    position: relative;
-    z-index: 1;
+    z-index: 2; /* Ensure header is above the canvas */
     font-size: 2em; /* Larger header font */
+    position: relative;
 }
 
 nav ul {
@@ -28,25 +28,25 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #0F0; /* Matrix green for nav links */
+    color: #0F0; /* Green for nav links */
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.2em; /* Slightly larger for better visibility */
+    font-size: 1.2em; /* Larger nav links */
 }
 
 nav ul li a:hover {
-    text-decoration: underline; /* Underline on hover */
+    text-decoration: underline; /* Hover effect */
 }
 
 section {
     padding: 40px;
     margin: 40px;
-    background-color: #222; /* Dark background for contrast */
+    background-color: #222; /* Darker section background */
     border-radius: 8px;
-    color: #ddd; /* Softer white for readability */
+    color: #ddd; /* Softer white text */
     position: relative;
-    z-index: 1;
-    font-size: 1.1em; /* Slightly larger for readability */
+    z-index: 2; /* Ensure sections are above the canvas */
+    font-size: 1.1em;
 }
 
 form {
@@ -56,7 +56,7 @@ form {
 
 form label {
     margin-top: 10px;
-    color: #0F0; /* Green for consistency */
+    color: #0F0; /* Consistent green */
 }
 
 form input, form textarea {
@@ -64,8 +64,8 @@ form input, form textarea {
     margin-top: 5px;
     border: 1px solid #0F0; /* Green border */
     border-radius: 3px;
-    background-color: #333; /* Dark background for inputs */
-    color: white; /* White text for visibility */
+    background-color: #333; /* Dark input background */
+    color: white; /* White text */
 }
 
 form input::placeholder, form textarea::placeholder {
@@ -75,8 +75,8 @@ form input::placeholder, form textarea::placeholder {
 form button {
     margin-top: 10px;
     padding: 10px;
-    background-color: #0F0; /* Green button background */
-    color: black; /* Dark text for contrast */
+    background-color: #0F0; /* Green button */
+    color: black;
     border: none;
     border-radius: 3px;
     cursor: pointer;
@@ -84,17 +84,17 @@ form button {
 }
 
 form button:hover {
-    background-color: #00cc00; /* Slightly brighter on hover */
+    background-color: #00cc00; /* Lighter green on hover */
 }
 
 footer {
     text-align: center;
     padding: 20px 0;
-    background-color: #111; /* Dark footer */
-    color: #0F0; /* Green text in footer */
+    background-color: #111; /* Dark footer background */
+    color: #0F0; /* Green footer text */
     position: relative;
-    z-index: 1;
-    font-size: 0.9em; /* Slightly smaller text */
+    z-index: 2; /* Footer above canvas */
+    font-size: 0.9em;
 }
 
 /* Matrix Effect */
@@ -104,5 +104,16 @@ canvas {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Place the canvas behind content */
+    z-index: 1; /* Matrix effect behind content */
+}
+
+/* Ensure content is visible and scrolls if necessary */
+html, body {
+    height: 100%;
+}
+
+#home, #blog, #forum, #contact {
+    min-height: 100vh; /* Ensure full screen sections */
+    padding: 50px;
+    box-sizing: border-box;
 }
