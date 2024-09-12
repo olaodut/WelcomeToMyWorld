@@ -1,7 +1,7 @@
 /* General styles */
 body {
     margin: 0;
-    overflow: hidden; /* Prevent scrollbars */
+    overflow: auto; /* Enable scrollbars */
     background-color: black;
     color: white;
     font-family: 'PT Serif', serif;
@@ -9,56 +9,35 @@ body {
 
 /* Matrix Effect */
 canvas {
-    position: fixed; /* Fix the canvas in place */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Ensure canvas is behind all other content */
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    z-index: -1; /* Ensure canvas stays behind all content */
+}
+
+/* Ensure sections fill the viewport */
+#home, #blog, #contact {
+    padding: 40px;
+    box-sizing: border-box;
+    background: rgba(0, 0, 0, 0.7); /* Match section background to blend with matrix */
 }
 
 /* Header styles */
 header {
-    background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
     color: #0F0; /* Matrix green */
     padding: 20px;
     text-align: center;
-    position: relative; /* Ensure it stacks on top of canvas */
-    z-index: 1; /* Ensure header is on top of the canvas */
-}
-
-/* Section styles */
-section {
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    color: white;
-    position: relative; /* Ensure it stacks on top of canvas */
-    z-index: 1; /* Ensure sections are above the canvas */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.7); /* Slight transparency */
-}
-
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
-    color: #0F0;
-    position: relative; /* Ensure it stacks on top of canvas */
-    z-index: 1; /* Ensure footer is on top of the canvas */
+    position: relative;
+    z-index: 1; /* Ensure header is on top */
 }
 
 /* Navigation styles */
 nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
 }
 
 nav ul li {
@@ -72,43 +51,22 @@ nav ul li a {
     font-weight: bold;
 }
 
-/* Form styles */
-form {
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-    text-align: left;
-    max-width: 600px;
-    width: 100%;
-}
-
-form label {
-    margin-top: 10px;
-}
-
-form input, form textarea, form button {
-    margin-top: 5px;
-    padding: 10px;
-    border: 1px solid #333;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.1);
+/* Section styles */
+section {
+    padding: 40px;
+    margin: 0; /* Remove default margin */
+    border-radius: 8px;
     color: white;
+    position: relative;
+    z-index: 1; /* Ensure content is above canvas */
 }
 
-form button {
-    background-color: #0F0;
-    color: black;
-    cursor: pointer;
-}
-
-form button:hover {
-    background-color: #0D0;
-}
-
-/* Article styles */
-article {
-    margin-bottom: 20px;
-    text-align: left;
-    max-width: 800px;
-    width: 100%;
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
+    color: #0F0;
+    position: relative;
+    z-index: 1;
 }
