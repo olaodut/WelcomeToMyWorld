@@ -6,7 +6,6 @@ body {
     background-color: black;
     color: white;
     overflow: auto; /* Allow scrolling */
-    position: relative;
 }
 
 /* Header styles */
