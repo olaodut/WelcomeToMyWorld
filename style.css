@@ -3,18 +3,59 @@ body {
     margin: 0;
     padding: 0;
     overflow: auto; /* Allow scrollbars */
-    background: transparent; /* Ensure no background color */
+    background-color: black;
     color: white;
     font-family: 'PT Serif', serif;
-}
-/* Header styles */
-header, section, footer {
     position: relative;
-    z-index: 1; /* Ensure content is above the canvas */
-    background: rgba(0, 0, 0, 0.8); /* Background for readability */
-    padding: 20px;
-    box-sizing: border-box;
 }
+
+/* Matrix effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Ensure the matrix is visible */
+    z-index: -1;
+    pointer-events: none; /* Allow clicks to pass through */
+    overflow: hidden;
+    background-image: linear-gradient(90deg, rgba(0, 255, 0, 0.8) 50%, transparent 50%);
+    background-size: 20px 20px;
+    animation: matrix 1s linear infinite;
+}
+
+/* Matrix animation */
+@keyframes matrix {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Ensure sections fill the viewport */
+section {
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Match section background to blend */
+    position: relative;
+    z-index: 1; /* Ensure content is on top of the matrix */
+}
+
+/* Header styles */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
 /* Nav styles */
 nav ul {
     list-style-type: none;
