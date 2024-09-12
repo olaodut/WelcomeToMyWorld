@@ -1,15 +1,11 @@
 /* General styles */
-html, body {
-    height: 100%; /* Ensure body covers full height */
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prevent scrollbars */
-}
-
 body {
     font-family: 'PT Serif', serif;
+    margin: 0;
+    padding: 0;
     background-color: black;
     color: white;
+    overflow: hidden; /* Prevent scrollbars */
     position: relative;
 }
 
