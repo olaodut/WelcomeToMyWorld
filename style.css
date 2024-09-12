@@ -19,18 +19,6 @@ canvas {
     z-index: -1; /* Ensure canvas stays behind all content */
 }
 
-/* Ensure sections fill the viewport */
-#home, #blog, #contact {
-    min-height: 100vh;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.7); /* Match section background to blend with matrix */
-}
-
 /* Header styles */
 header {
     background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
@@ -41,6 +29,20 @@ header {
     z-index: 2; /* Ensure header is on top */
 }
 
+/* Ensure sections fill the viewport */
+#home, #blog, #contact {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.7); /* Match section background to blend with matrix */
+    position: relative; /* Ensure section stays on top of canvas */
+    z-index: 1; /* Higher than canvas but lower than header and footer */
+}
+
 /* Section styles */
 section {
     padding: 40px;
@@ -48,7 +50,7 @@ section {
     border-radius: 8px;
     color: white;
     position: relative;
-    z-index: 2; /* Ensure content is above canvas */
+    z-index: 1; /* Ensure content is above canvas */
 }
 
 /* Footer styles */
@@ -58,5 +60,39 @@ footer {
     background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
     color: #0F0;
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensure footer is on top */
+}
+
+/* Form styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Form input styles */
+label {
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+    color: white;
+}
+
+button {
+    padding: 10px;
+    background-color: #0F0; /* Matrix green */
+    color: black;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #0D0; /* Slightly darker green */
 }
