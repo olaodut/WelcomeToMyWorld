@@ -74,8 +74,13 @@
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
 
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
 
         const fontSize = 16;
         const columns = canvas.width / fontSize;
@@ -103,11 +108,6 @@
         }
 
         setInterval(draw, 30);
-
-        window.onresize = function () {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
     </script>
 
 </body>
