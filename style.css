@@ -9,97 +9,6 @@ body {
     position: relative;
 }
 
-header {
-    background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
-    color: #0F0; /* Matrix green */
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    z-index: 2; /* Ensure header is on top */
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 20px;
-}
-
-nav ul li a {
-    color: #0F0;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2em;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Section styles */
-section {
-    padding: 40px;
-    margin: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Transparent background for Matrix effect */
-    border-radius: 8px;
-    color: white;
-    position: relative;
-    z-index: 2; /* Ensure content is above canvas */
-}
-
-h2, h3 {
-    color: #0F0; /* Green headings */
-}
-
-/* Form styles */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form label {
-    margin-top: 10px;
-    color: #0F0;
-}
-
-form input, form textarea {
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #0F0;
-    border-radius: 3px;
-    background-color: #333;
-    color: white;
-}
-
-form button {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #0F0;
-    color: black;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-form button:hover {
-    background-color: #00cc00;
-}
-
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
-    color: #0F0;
-    position: relative;
-    z-index: 2;
-}
-
 /* Matrix Effect */
 canvas {
     position: fixed;
@@ -117,4 +26,35 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* Header styles */
+header {
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black */
+    color: #0F0; /* Matrix green */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2; /* Ensure header is on top */
+}
+
+/* Section styles */
+section {
+    padding: 40px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent background for Matrix effect */
+    border-radius: 8px;
+    color: white;
+    position: relative;
+    z-index: 2; /* Ensure content is above canvas */
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Slight transparency */
+    color: #0F0;
+    position: relative;
+    z-index: 2;
 }
