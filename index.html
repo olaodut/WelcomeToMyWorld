@@ -335,8 +335,29 @@ header {
             </div>
         </section>
 		
+        <section id="news-feed">
+	     <div class="threat-intelligence">
+                 <h2>Real-Time Threat Intelligence Feed</h2>
+                 <iframe src="https://www.wired.com/tag/cybersecurity/" allowfullscreen></iframe>
+	     </div>
         </section>
 
+        <section id="encryption-tool">
+		<div class="encryption-tool">
+    <h2>Encryption/Decryption Tool</h2>
+    <label for="message">Enter Message:</label>
+    <input type="text" id="message" placeholder="Enter message">
+    
+    <label for="shift">Shift (for Caesar Cipher):</label>
+    <input type="number" id="shift" value="3">
+    
+    <button onclick="encryptMessage()">Encrypt</button>
+    <button onclick="decryptMessage()">Decrypt</button>
+
+    <p id="result"></p>
+	        </div>
+	 </section>
+		
 	           <section id="vulnerabilities">
             <div class="vulnerabilities">
                 <h2>Common Security Vulnerabilities</h2>
@@ -440,5 +461,34 @@ header {
             }
         }
     </script>
+
+    <script>
+    function encryptMessage() {
+        const message = document.getElementById("message").value;
+        const shift = parseInt(document.getElementById("shift").value);
+        document.getElementById("result").innerText = caesarCipher(message, shift);
+    }
+
+    function decryptMessage() {
+        const message = document.getElementById("message").value;
+        const shift = parseInt(document.getElementById("shift").value);
+        document.getElementById("result").innerText = caesarCipher(message, -shift);
+    }
+
+    function caesarCipher(str, shift) {
+        return str
+            .split('')
+            .map(char => {
+                if (char.match(/[a-z]/i)) {
+                    const code = char.charCodeAt();
+                    const base = (code >= 65 && code <= 90) ? 65 : 97;
+                    return String.fromCharCode(((code - base + shift) % 26) + base);
+                }
+                return char;
+            })
+            .join('');
+    }
+      </script>
+		
 </body>
 </html>
