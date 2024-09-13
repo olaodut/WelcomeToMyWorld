@@ -37,6 +37,21 @@
             text-align: center;
             padding-bottom: 20px;
         }
+
+        /* Animation for rotating the h1 header */
+        h1 {
+            animation: spin 5s linear infinite;
+        }
+
+        /* Keyframes for the spin animation */
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+	}	
         /* Navigation styles */
         nav ul {
             list-style-type: none;
