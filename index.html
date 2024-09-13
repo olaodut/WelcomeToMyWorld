@@ -51,7 +51,13 @@
             to {
                 transform: rotateY(360deg);
             }
-	}	
+		
+	h1 {
+        display: inline-block;
+        animation: spin 5s infinite linear; /* Adjust duration as needed */
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
+    }
         /* Navigation styles */
         nav ul {
             list-style-type: none;
