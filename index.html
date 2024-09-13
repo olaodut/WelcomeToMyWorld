@@ -23,7 +23,8 @@
             margin-top: 10px;
             font-weight: bold;
         }
-	            /* Additional sections styles */
+
+        /* Additional sections styles */
         .vulnerabilities, .encryption-comparison, .news-feed {
             background-color: #333;
             border-radius: 10px;
@@ -39,16 +40,12 @@
         .vulnerabilities ul li, .encryption-comparison td, .encryption-comparison th {
             margin-bottom: 5px;
         }
-        .news-feed iframe {
+        .news-feed iframe, .threat-intelligence iframe {
             width: 100%;
             height: 400px;
             border: none;
         }
-	.threat-intelligence iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
+
         /* General styles */
         body {
             margin: 0;
@@ -59,6 +56,7 @@
             position: relative;
             overflow: auto;
         }
+
         /* Matrix effect canvas */
         #matrix {
             position: fixed;
@@ -68,6 +66,7 @@
             height: 100%;
             z-index: -1;
         }
+
         /* Content container */
         .content {
             position: relative;
@@ -75,6 +74,7 @@
             padding: 20px;
             box-sizing: border-box;
         }
+
         /* Header styles */
         header {
             text-align: center;
@@ -94,25 +94,20 @@
             to {
                 transform: rotateY(360deg);
             }
-		
-		
-    }
-header {
-    perspective: 1000px;
-    /* Vendor prefix for perspective */
-    -webkit-perspective: 1000px;
-}
-/* Mobile specific adjustments */
-@media (max-width: 768px) {
-    #matrix {
-        width: 100vw; /* Ensure the canvas covers the full viewport width */
-        height: 100vh; /* Ensure the canvas covers the full viewport height */
-    }
-    header h1 {
-        font-size: 2em; /* Adjust font size for smaller screens */
-        animation: spin 15s linear infinite; /* Slower spin animation on mobile */
-    }
-}
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            #matrix {
+                width: 100vw; /* Ensure the canvas covers the full viewport width */
+                height: 100vh; /* Ensure the canvas covers the full viewport height */
+            }
+            header h1 {
+                font-size: 2em; /* Adjust font size for smaller screens */
+                animation: spin 15s linear infinite; /* Slower spin animation on mobile */
+            }
+        }
+
         /* Navigation styles */
         nav ul {
             list-style-type: none;
@@ -123,15 +118,15 @@ header {
             display: inline;
             margin-right: 15px;
         }
-        /* Add the Matrix effect to navigation links */
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.2em; /* Adjust size as needed */
             display: inline-block;
-            animation: fadeInOut 3s linear infinite; /* Apply the fade in and out animation */
+            animation: fadeInOut 3s linear infinite;
         }
+
         /* Keyframes for fading in and out */
         @keyframes fadeInOut {
             0%, 100% {
@@ -147,8 +142,9 @@ header {
             padding: 20px;
             box-sizing: border-box;
             margin-bottom: 20px;
-            text-align: center; /* Center align text */
+            text-align: center;
         }
+
         /* Blog container */
         #blog {
             background-color: #333;
@@ -159,41 +155,32 @@ header {
             overflow: hidden;
             position: relative;
         }
-/* Blog container */
-#blog {
-    background-color: #333;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 0 auto;
-    max-width: 800px;
-    overflow: hidden;
-    position: relative;
-}
 
-/* Blog posts container */
-.blog-posts {
-    display: flex;
-    flex-direction: row; /* Changed to row for horizontal layout */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Hide vertical scrolling */
-    max-height: 600px; /* Adjust this value as needed */
-    scroll-snap-type: x mandatory; /* Horizontal snap type */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
-}
+        /* Blog posts container */
+        .blog-posts {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            overflow-y: hidden; /* Hide vertical scrolling */
+            max-height: 600px;
+            scroll-snap-type: x mandatory; /* Horizontal snap type */
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+        }
 
-/* Individual blog post */
-.blog-post {
-    flex: 0 0 auto; /* Adjust to fit content */
-    box-sizing: border-box;
-    padding: 20px;
-    scroll-snap-align: start; /* Snap alignment */
-    background-color: #444;
-    margin-right: 10px; /* Space between posts horizontally */
-    border-radius: 10px;
-    max-width: 300px; /* Adjust as needed to fit your design */
-    max-height: 100%; /* Ensure the post does not exceed the container height */
-    overflow-y: auto; /* Enable vertical scrolling within each post if needed */
-}
+        /* Individual blog post */
+        .blog-post {
+            flex: 0 0 auto;
+            box-sizing: border-box;
+            padding: 20px;
+            scroll-snap-align: start; /* Snap alignment */
+            background-color: #444;
+            margin-right: 10px;
+            border-radius: 10px;
+            max-width: 300px;
+            max-height: 100%;
+            overflow-y: auto; /* Enable vertical scrolling within each post if needed */
+        }
+
         /* Form styles */
         form {
             display: flex;
@@ -212,6 +199,7 @@ header {
             margin-top: 5px;
             width: 100%;
         }
+
         /* Footer styles */
         footer {
             text-align: center;
@@ -231,12 +219,14 @@ header {
                 <ul>
                     <li><a href="#home">Home</a></li>
                     <li><a href="#blog">Blog</a></li>
-		    <li><a href="#cyber">Cyber</a></li>
-		    <li><a href="#threatintel">ThreatIntel</a></li>
+                    <li><a href="#cyber">Cyber</a></li>
+                    <li><a href="#threatintel">ThreatIntel</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
+
+        <!-- Home section -->
         <section id="home">
             <h2>Home</h2>
             <p>Don't worry about who I am. I'm just here to help.</p>
