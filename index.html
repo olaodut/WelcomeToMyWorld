@@ -77,11 +77,25 @@ header {
             display: inline;
             margin-right: 15px;
         }
+        /* Add the Matrix effect to navigation links */
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            font-size: 1.2em; /* Adjust size as needed */
+            display: inline-block;
+            animation: fadeInOut 3s linear infinite; /* Apply the fade in and out animation */
         }
+        /* Keyframes for fading in and out */
+        @keyframes fadeInOut {
+            0%, 100% {
+                opacity: 0.5;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
         /* Section styles */
         section {
             padding: 20px;
