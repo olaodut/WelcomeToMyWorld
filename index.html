@@ -51,27 +51,28 @@
             to {
                 transform: rotateY(360deg);
             }
-		
-		
-    }
-header {
-    perspective: 1000px;
-    /* Vendor prefix for perspective */
-    -webkit-perspective: 1000px;
-}
+        }
 
-/* Mobile specific adjustments */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 2em; /* Adjust font size for smaller screens */
-        animation: spin 15s linear infinite; /* Slower spin on mobile if needed */
-    }
-}
+        header {
+            perspective: 1000px;
+            /* Vendor prefix for perspective */
+            -webkit-perspective: 1000px;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em; /* Adjust font size for smaller screens */
+                animation: spin 15s linear infinite; /* Slower spin on mobile if needed */
+            }
+        }
+
         /* Navigation styles */
         nav ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
+            text-align: center; /* Center align navigation items */
         }
         nav ul li {
             display: inline;
@@ -224,86 +225,51 @@ header {
 <p>With more and more devices connecting to the internet, security needs to step up:</p>
 
 	<li><strong>Built-In Security</strong>: Expect IoT devices to come with secure security features right from the start, like strong encryption and easy updates.</li>
-	<li><strong>IoT Security Standards</strong>: There will be new standards to make sure all those connected gadgets are up to scratch, reducing risks and keeping things secure.</li>
+	<li><strong>Secure Standards</strong>: Watch for new standards that ensure all IoT devices follow best practices for security, so vulnerabilities are less likely to slip through.</li>
 
+<h3>5. Cultural Shifts in Cybersecurity</h3>
 
-<h3>5. Securing Tomorrow’s Tech</h3>
+<p>Our changing culture is impacting how we approach cybersecurity:</p>
 
-<p>As new technologies come into play, cybersecurity will need to adapt:</p>
+	<li><strong>More Transparency</strong>: There’s a push for companies to be open about their security practices and data breaches, helping everyone stay informed.</li>
+	<li><strong>Inclusive Security</strong>: Efforts to include more diverse voices in cybersecurity are growing, bringing fresh perspectives and ideas to tackle challenges.</li>
 
-	<li><strong>Quantum-Resistant Encryption</strong>: With quantum computers on the horizon, we’ll develop encryption methods that are stronger than ever.</li>
-	<li><strong>AR/VR Security</strong>: Augmented and virtual reality will need their own security measures to protect these immersive environments from new types of cyber threats.</li>
-
-<h3>Is Cyber Important In Your Life? ... Yet?</h3>
-
-<p>Today’s culture—fueled by a desire for privacy. As these trends continue to evolve, we’ll see new, more advanced ways to protect our digital lives. Staying on top of these changes will help us navigate the future of cyber threats and keep our data safe.</p>
-                </div>
-                <div class="blog-post">
-                    <p>September 2024</p>
-                    <h3>The Online World: Expanding Connections, Shrinking Privacy</h3>
-
-<h3><strong>1. The Power of Connection</strong>: What’s on the Horizon?</h3>
-
-<p>The internet has revolutionized how we meet people. It doesn’t matter where you are — your next conversation could be with someone across the globe. You can connect based on interests, goals, and ideas. No longer are we limited by our physical environments. Some key benefits of this include:</p>
-
-	<li><strong>Global Access</strong>: You can network with anyone, anywhere, at any time.</li>
-	<li><strong>Anonymity</strong>:  You don’t have to share who you really are, which allows you to interact freely without fear of judgment.</li>
-        
-<h3>2. The Tradeoff: Privacy</h3>
-
-<p>With all this freedom and connectivity, privacy takes a hit. While you can be anonymous, so can everyone else — and that’s not always a good thing. What you don’t see behind a username can be dangerous.</p>
-
-	<li><strong>Anonymity Cuts Both Ways</strong>: While you can interact without revealing your identity, so can potential cyber threats. Bad actors hide behind anonymity, just like anyone else.</li>
-	<li><strong>Data Exposure</strong>: The more we connect, the more personal data we share — whether we realize it or not. Every platform and app is collecting information that could be used against you if you’re not careful.</li>
-
-<h3>3. Striking the Balance: Connection vs. Protection</h3>
-
-<p>while the digital world gives us all these opportunities to meet and interact, it also requires us to be more mindful. Privacy is no longer something we can take for granted. We have to work to protect it. Here’s what we can do:</p>
-
-	<li><strong>Use Security Tools</strong>: Forget about trusting anyone just because they’re inside your network. Zero Trust means always verifying users and devices, no matter where they are.</li>
-	<li><strong>Be Skeptical</strong>: Don’t trust everything at face value online. Verify information and be cautious of people asking for personal details.</li>
-
-<h3>Whats Your Approach To Balancing Reality And The Online World?</h3>
-
-<p>The internet is changing the way we connect, but it’s also forcing us to rethink privacy and trust. In cybersecurity, the goal is finding the balance between engaging with the online world and safeguarding ourselves from its risks.</p>
+<p>The future of cybersecurity is looking bright, with plenty of exciting developments on the way. Keep an eye out for these trends, as they’ll shape the way we protect our digital lives in the years to come.</p>
                 </div>
             </div>
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <form action="https://formspree.io/f/xrbzvgbz" method="POST">
+            <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" rows="4" required></textarea>
                 <button type="submit">Send</button>
             </form>
         </section>
-        <footer>
-            <p>&copy; 2024 Welcome To My World</p>
-        </footer>
     </div>
-    
     <!-- Matrix effect script -->
     <script>
+        // Matrix effect
         const canvas = document.getElementById('matrix');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        const fontSize = 16;
+        const columns = canvas.width = window.innerWidth;
+        const rows = canvas.height = window.innerHeight;
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const fontSize = 10;
         const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-        const characters = '0123456789';
-        const charArray = characters.split('');
+        const drops = Array.from({ length: columns }).fill(0);
+        
         function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#0F0';
             ctx.font = `${fontSize}px monospace`;
             for (let i = 0; i < drops.length; i++) {
-                const text = charArray[Math.floor(Math.random() * charArray.length)];
+                const text = characters[Math.floor(Math.random() * characters.length)];
                 ctx.fillText(text, i * fontSize, drops[i] * fontSize);
                 if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                     drops[i] = 0;
@@ -311,11 +277,8 @@ header {
                 drops[i]++;
             }
         }
-        setInterval(draw, 30);
-        window.onresize = function () {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
+        
+        setInterval(draw, 33);
     </script>
 </body>
 </html>
