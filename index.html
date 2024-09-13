@@ -157,19 +157,22 @@ header {
         /* Blog posts container */
         .blog-posts {
             display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
+            flex-direction: column; /* Changed from row to column */
+            overflow-y: auto; /* Enable vertical scrolling */
+            max-height: 600px; /* Adjust this value as needed */
+            scroll-snap-type: y mandatory;
             -webkit-overflow-scrolling: touch;
         }
         /* Individual blog post */
         .blog-post {
-            flex: 0 0 100%;
+            flex: 0 0 auto; /* Adjusted to fit content */
             box-sizing: border-box;
             padding: 20px;
             scroll-snap-align: start;
             background-color: #444;
-            margin-right: 10px;
+            margin-bottom: 10px; /* Changed from right to bottom */
             border-radius: 10px;
+            max-width: 100%;
         }
         /* Form styles */
         form {
