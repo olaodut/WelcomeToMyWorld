@@ -154,26 +154,41 @@ header {
             overflow: hidden;
             position: relative;
         }
-        /* Blog posts container */
-        .blog-posts {
-            display: flex;
-            flex-direction: column; /* Changed from row to column */
-            overflow-y: auto; /* Enable vertical scrolling */
-            max-height: 600px; /* Adjust this value as needed */
-            scroll-snap-type: y mandatory;
-            -webkit-overflow-scrolling: touch;
-        }
-        /* Individual blog post */
-        .blog-post {
-            flex: 0 0 auto; /* Adjusted to fit content */
-            box-sizing: border-box;
-            padding: 20px;
-            scroll-snap-align: start;
-            background-color: #444;
-            margin-bottom: 10px; /* Changed from right to bottom */
-            border-radius: 10px;
-            max-width: 100%;
-        }
+/* Blog container */
+#blog {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Blog posts container */
+.blog-posts {
+    display: flex;
+    flex-direction: row; /* Changed to row for horizontal layout */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: hidden; /* Hide vertical scrolling */
+    max-height: 600px; /* Adjust this value as needed */
+    scroll-snap-type: x mandatory; /* Horizontal snap type */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+}
+
+/* Individual blog post */
+.blog-post {
+    flex: 0 0 auto; /* Adjust to fit content */
+    box-sizing: border-box;
+    padding: 20px;
+    scroll-snap-align: start; /* Snap alignment */
+    background-color: #444;
+    margin-right: 10px; /* Space between posts horizontally */
+    border-radius: 10px;
+    max-width: 300px; /* Adjust as needed to fit your design */
+    max-height: 100%; /* Ensure the post does not exceed the container height */
+    overflow-y: auto; /* Enable vertical scrolling within each post if needed */
+}
         /* Form styles */
         form {
             display: flex;
