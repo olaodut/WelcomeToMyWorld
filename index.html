@@ -507,6 +507,20 @@
         }
     }
    </script>
+	<!-- Hacker Namer Gen script -->
+   <script>
+	document.getElementById('generate-name').addEventListener('click', function() {
+	    var adjectives = ["Cyber", "Shadow", "Ninja", "Quantum", "Phantom", "Stealth", "Dark", "Silent"];
+	    var nouns = ["Wolf", "Dragon", "Falcon", "Hawk", "Raven", "Viper", "Phoenix", "Tiger"];
+	    
+	    var randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+	    var randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+	    
+	    var hackerName = randomAdjective + " " + randomNoun;
+	    document.getElementById('hacker-name').textContent = hackerName;
+	});
+    </script>
+	
 </body>
 </html>
 
