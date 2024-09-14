@@ -6,52 +6,6 @@
     <title>Welcome To My World</title>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: serif, pt-serif;
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-        input[type="password"] {
-            padding: 10px;
-            width: 100%;
-            margin: 10px 0;
-        }
-        button {
-            padding: 10px;
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        .result {
-            margin-top: 20px;
-        }
-        /* Additional sections styles */
-        .vulnerabilities, .encryption-comparison, .news-feed {
-            background-color: #333;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            text-align: left;
-        }
-        .vulnerabilities ul, .encryption-comparison table {
-            margin-top: 10px;
-            padding: 0;
-        }
-        .vulnerabilities ul li, .encryption-comparison td, .encryption-comparison th {
-            margin-bottom: 5px;
-        }
-        .news-feed iframe, .threat-intelligence iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
         /* General styles */
         body {
             margin: 0;
@@ -61,6 +15,57 @@
             font-family: 'PT Serif', serif;
             position: relative;
             overflow: auto;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        input[type="password"] {
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+
+        /* Additional sections styles */
+        .vulnerabilities, .encryption-comparison, .news-feed {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .vulnerabilities ul, .encryption-comparison table {
+            margin-top: 10px;
+            padding: 0;
+        }
+
+        .vulnerabilities ul li, .encryption-comparison td, .encryption-comparison th {
+            margin-bottom: 5px;
+        }
+
+        .news-feed iframe, .threat-intelligence iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
         }
 
         /* Matrix effect canvas */
@@ -98,7 +103,7 @@
                 transform: rotate(0deg);
             }
             to {
-                transform: rotate(360deg);
+                transform: rotate(360deg); /* Use rotate for a 2D spin */
             }
         }
 
