@@ -6,6 +6,32 @@
     <title>Welcome To My World</title>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <style>
+	      /* Hacker name generator */
+	    #hacker-name-generator {
+    border: 2px solid #00FF00;
+    padding: 20px;
+    background-color: #000000;
+    color: #00FF00;
+    text-align: center;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+#generate-name {
+    background-color: #00FF00;
+    border: none;
+    color: #000000;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#generate-name:hover {
+    background-color: #00CC00;
+}
+
     /* Matrix Clock Styles */
         #matrixClock {
             position: fixed;
@@ -376,7 +402,15 @@
                  <iframe src="https://www.darkreading.com/threat-intelligence" allowfullscreen></iframe>
 	     </div>
         </section>
-		
+
+        <section id="hacker-name-generator">	
+	<div id="hacker-name-generator">
+          <h3>Hacker Name Generator</h3>
+          <button id="generate-name">Generate Hacker Name</button>
+          <p id="hacker-name">Your hacker name will appear here.</p>
+       </div>
+	</section>
+
 	<section id="password-checker">
     <div class="container">
         <h2>Password Analyzer</h2>
