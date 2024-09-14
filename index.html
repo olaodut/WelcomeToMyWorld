@@ -430,31 +430,31 @@
         };
     </script>
     
-     <script>
-        function analyzePassword() {
-            var password = document.getElementById("passwordInput").value;
-            var resultElement = document.getElementById("result");
-            
-            var result = validatePassword(password);
-            resultElement.textContent = result;
-        }
+    <script>
+    document.getElementById("analyzeButton").addEventListener("click", function() {
+        var password = document.getElementById("passwordInput").value;
+        var resultElement = document.getElementById("result");
 
-        function validatePassword(password) {
-            if (password.length < 8) {
-                return "Not Valid Password: Too short";
-            } else if (!/[a-z]/.test(password)) {
-                return "Not Valid Password: No lowercase letter";
-            } else if (!/[A-Z]/.test(password)) {
-                return "Not Valid Password: No uppercase letter";
-            } else if (!/[0-9]/.test(password)) {
-                return "Not Valid Password: No number";
-            } else if (!/[!@#$%&]/.test(password)) {
-                return "Not Valid Password: No special character";
-            } else {
-                return "Valid Password";
-            }
+        var result = validatePassword(password);
+        resultElement.textContent = result;
+    });
+
+    function validatePassword(password) {
+        if (password.length < 8) {
+            return "Not Valid Password: Too short";
+        } else if (!/[a-z]/.test(password)) {
+            return "Not Valid Password: No lowercase letter";
+        } else if (!/[A-Z]/.test(password)) {
+            return "Not Valid Password: No uppercase letter";
+        } else if (!/[0-9]/.test(password)) {
+            return "Not Valid Password: No number";
+        } else if (!/[!@#$%&]/.test(password)) {
+            return "Not Valid Password: No special character";
+        } else {
+            return "Valid Password";
         }
-    </script>
+    }
+   </script>
 </body>
 </html>
 
