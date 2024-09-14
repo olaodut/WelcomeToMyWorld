@@ -406,8 +406,8 @@
         <section id="hacker-name-generator">	
 	<div id="hacker-name-generator">
           <h3>Hacker Name Generator</h3>
-          <button id="generate-name">Generate Hacker Name</button>
-          <p id="hacker-name">Your hacker name will appear here.</p>
+          <button id="generate-name">Generate Cyber Name</button>
+          <p id="hacker-name">Your Cyber name will appear here.</p>
        </div>
 	</section>
 
@@ -510,8 +510,18 @@
 	<!-- Hacker Namer Gen script -->
    <script>
 	document.getElementById('generate-name').addEventListener('click', function() {
-	    var adjectives = ["Cyber", "Shadow", "Ninja", "Quantum", "Phantom", "Stealth", "Dark", "Silent"];
-	    var nouns = ["Wolf", "Dragon", "Falcon", "Hawk", "Raven", "Viper", "Phoenix", "Tiger"];
+    var adjectives = [
+        "Cyber", "Shadow", "Ninja", "Quantum", "Phantom", "Stealth", "Dark", "Silent",
+        "Rogue", "Mystic", "Digital", "Venom", "Ice", "Thunder", "Inferno", "Eclipse",
+        "Spectral", "Blazing", "Savage", "Twilight", "Vortex", "Nebula", "Iron", "Savage",
+        "Hacker", "Ghost", "Maverick", "Silent", "Fury", "Ghostly", "Electric", "Enigma"
+    ];
+    var nouns = [
+        "Wolf", "Dragon", "Falcon", "Hawk", "Raven", "Viper", "Phoenix", "Tiger",
+        "Panther", "Griffin", "Leopard", "Wraith", "Reaper", "Specter", "Serpent", "Shark",
+        "Golem", "Lion", "Jaguar", "Mantis", "Talon", "Cobra", "Puma", "Falcon",
+        "Mammoth", "Titan", "Centurion", "Storm", "Beast", "Raptor", "Raven", "Demon"
+    ];
 	    
 	    var randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
 	    var randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
