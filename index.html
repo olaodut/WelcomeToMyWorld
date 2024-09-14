@@ -6,6 +6,23 @@
     <title>Welcome To My World</title>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <style>
+    /* Matrix Clock Styles */
+        #matrixClock {
+            position: fixed;
+            top: 10px; /* Adjust top position as needed */
+            left: 10px; /* Adjust left position as needed */
+            color: white;
+            font-size: 2em; /* Adjust font size as needed */
+            z-index: 1; /* Ensure the clock is above other content */
+            padding: 10px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
         /* General styles */
         body {
             margin: 0;
@@ -221,6 +238,16 @@
     </style>
 </head>
 <body>
+    <!-- Matrix Clock -->
+    <div id="matrixClock"></div>
+
+    <!-- Matrix Effect Canvas -->
+    <canvas id="matrix"></canvas>
+
+    <div class="content">
+        <!-- Your other content here -->
+    </div>
+
     <!-- Matrix effect canvas -->
     <canvas id="matrix"></canvas>
     <div class="content">
@@ -398,6 +425,19 @@
         </footer>
     </div>
     
+    <script>
+        // Matrix Clock JavaScript
+        function updateClock() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            document.getElementById('matrixClock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock(); // Initial call to set clock immediately
+    </script>
+
     <!-- Matrix effect script -->
     <script>
         const canvas = document.getElementById('matrix');
