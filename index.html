@@ -6,6 +6,23 @@
     <title>Welcome To My World</title>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <style>
+
+		 /* Grid Container Style */
+	.grid-container {
+	    display: grid;
+	    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive columns */
+	    gap: 20px; /* Space between grid items */
+	    margin: 20px; /* Optional: margin around the grid */
+	}
+	
+	/* Grid Item Style */
+	.grid-item {
+	    background-color: #f4f4f4; /* Light background for items */
+	    padding: 20px; /* Padding inside each grid item */
+	    border-radius: 8px; /* Rounded corners for items */
+	    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+	}
+   
 	      /* cyber name generator */
 	    #cyber-name-generator {
     border: 2px solid #00FF00;
@@ -460,21 +477,21 @@
             </div>
             
         <section id="threat-map">
-            <div class="threat-map">
+            <div class="grid-container">
                 <h2>Real-Time Threat Map</h2>
                 <iframe src="https://livethreatmap.radware.com" title="Real-Time Threat Map" style="width: 100%; height: 500px; border: none;"></iframe>
             </div>
          </section>
 		
         <section id="news-feed">
-            <div class="news-feed">
+            <div class="grid-container">
                 <h2>Cybersecurity News Feed</h2>
                 <iframe src="https://www.wired.com/tag/cybersecurity/" allowfullscreen></iframe>
             </div>
         </section>
 		
         <section id="threat-intelligence">
-	     <div class="threat-intelligence">
+	     <div class="grid-container">
                  <h2>Real-Time Threat Intelligence Feed</h2>
                  <iframe src="https://www.darkreading.com/threat-intelligence" allowfullscreen></iframe>
 	     </div>
