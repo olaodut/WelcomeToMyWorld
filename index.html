@@ -6,24 +6,6 @@
     <title>Welcome To My World</title>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
     <style>
-        /* Password Checker styles */
-        .password-checker {
-            background-color: #333;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: center;
-        }
-        .password-checker input, .password-checker button {
-            margin-top: 10px;
-            width: 100%;
-        }
-        .password-checker .result {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
         /* Additional sections styles */
         .vulnerabilities, .encryption-comparison, .news-feed {
             background-color: #333;
@@ -421,27 +403,5 @@
             canvas.height = window.innerHeight;
         };
     </script>
-
-   <script>
-        function checkPassword() {
-            var password = document.getElementById('password').value;
-            var result = document.getElementById('result');
-            
-            if (password.length < 8) {
-                result.textContent = 'Password is too short.';
-                result.style.color = 'red';
-            } else if (!/[A-Z]/.test(password)) {
-                result.textContent = 'Password should include at least one uppercase letter.';
-                result.style.color = 'orange';
-            } else if (!/[0-9]/.test(password)) {
-                result.textContent = 'Password should include at least one number.';
-                result.style.color = 'orange';
-            } else {
-                result.textContent = 'Password is strong.';
-                result.style.color = 'green';
-            }
-        }
-    </script>
-		
 </body>
 </html>
