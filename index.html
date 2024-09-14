@@ -1,538 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome To My World</title>
-    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <title>
+      Welcome To My World
+    </title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap"
+    rel="stylesheet">
     <style>
-	      /* cyber name generator */
-	    #cyber-name-generator {
-    border: 2px solid #00FF00;
-    padding: 20px;
-    background-color: #000000;
-    color: #00FF00;
-    text-align: center;
-    border-radius: 8px;
-    margin: 20px auto;
-    max-width: 300px;
-}
-
-#generate-name {
-    background-color: #00FF00;
-    border: none;
-    color: #000000;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#generate-name:hover {
-    background-color: #00CC00;
-}
-
-    /* Matrix Clock Styles */
-        #matrixClock {
-            position: fixed;
-            top: 10px; /* Adjust top position as needed */
-            left: 120px; /* Adjust left position as needed */
-            color: white;
-            font-size: 2em; /* Adjust font size as needed */
-            z-index: 0; /* Ensure the clock is above other content */
-            padding: 10px;
-            opacity: 0.5;
-        }
-
-        .content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        /* General styles */
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-            color: white;
-            font-family: 'PT Serif', serif;
-            position: relative;
-            overflow: auto;
-        }
-
-        .container {
-            max-width: 400px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        input[type="password"] {
-            padding: 10px;
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        button {
-            padding: 10px;
-            width: 100%;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .result {
-            margin-top: 20px;
-        }
-
-        /* Additional sections styles */
-
-        .news-feed iframe, .threat-intelligence iframe {
-            width: 100%;
-            height: 400px;
-            border: none;
-        }
-
-        /* Matrix effect canvas */
-        #matrix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        /* Content container */
-        .content {
-            position: relative;
-            z-index: 1;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .threat-map {
-            background-color: #333;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
-            text-align: left;
-        }
-        /* Header styles */
-        header {
-            text-align: center;
-            padding-bottom: 20px;
-        }
-
-        /* Animation for rotating the h1 header */
-        h1 {
-            animation: spin 5s linear infinite;
-        }
-
-        /* Keyframes for the spin animation */
-        @keyframes spin {
-            from {
-                transform: rotateY(0deg);
-            }
-            to {
-                transform: rotateY(360deg); /* Use rotate for a 2D spin */
-            }
-        }
-
-        /* Mobile specific adjustments */
-        @media (max-width: 768px) {
-            #matrix {
-                width: 100vw; /* Ensure the canvas covers the full viewport width */
-                height: 100vh; /* Ensure the canvas covers the full viewport height */
-            }
-            header h1 {
-                font-size: 2em; /* Adjust font size for smaller screens */
-                animation: spin 15s linear infinite; /* Slower spin animation on mobile */
-            }
-        }
-
-        /* Navigation styles */
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin-right: 15px;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2em; /* Adjust size as needed */
-            display: inline-block;
-            animation: fadeInOut 3s linear infinite;
-        }
-
-        /* Keyframes for fading in and out */
-        @keyframes fadeInOut {
-            0%, 100% {
-                opacity: 0.5;
-            }
-            50% {
-                opacity: 1;
-            }
-        }
-
-        /* Section styles */
-        section {
-            padding: 20px;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        /* Blog container */
-        #blog {
-            background-color: #333;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 0 auto;
-            max-width: 800px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Blog posts container */
-        .blog-posts {
-            display: flex;
-            flex-direction: row;
-            overflow-x: auto; /* Enable horizontal scrolling */
-            overflow-y: hidden; /* Hide vertical scrolling */
-            max-height: 600px;
-            scroll-snap-type: x mandatory; /* Horizontal snap type */
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
-        }
-
-        /* Individual blog post */
-        .blog-post {
-            flex: 0 0 auto;
-            box-sizing: border-box;
-            padding: 20px;
-            scroll-snap-align: start; /* Snap alignment */
-            background-color: #444;
-            margin-right: 10px;
-            border-radius: 10px;
-            max-width: 300px;
-            max-height: 100%;
-            overflow-y: auto; /* Enable vertical scrolling within each post if needed */
-        }
-
-        /* Form styles */
-        form {
-            display: flex;
-            flex-direction: column;
-            margin: 20px auto;
-            max-width: 600px;
-            text-align: left;
-            background-color: #333;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        form label {
-            margin-top: 10px;
-        }
-        form input, form textarea, form button {
-            margin-top: 5px;
-            width: 100%;
-        }
-
-        /* Footer styles */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #0F0;
-        }
+      /* cyber name generator */ #cyber-name-generator { border: 2px solid #00FF00;
+      padding: 20px; background-color: #000000; color: #00FF00; text-align: center;
+      border-radius: 8px; margin: 20px auto; max-width: 300px; } #generate-name
+      { background-color: #00FF00; border: none; color: #000000; padding: 10px
+      20px; font-size: 16px; border-radius: 5px; cursor: pointer; } #generate-name:hover
+      { background-color: #00CC00; } /* Matrix Clock Styles */ #matrixClock {
+      position: fixed; top: 10px; /* Adjust top position as needed */ left: 120px;
+      /* Adjust left position as needed */ color: white; font-size: 2em; /* Adjust
+      font size as needed */ z-index: 0; /* Ensure the clock is above other content
+      */ padding: 10px; opacity: 0.5; } .content { position: relative; z-index:
+      1; padding: 20px; box-sizing: border-box; } /* General styles */ body {
+      margin: 0; padding: 0; background-color: black; color: white; font-family:
+      'PT Serif', serif; position: relative; overflow: auto; } .container { max-width:
+      400px; margin: 0 auto; padding: 20px; text-align: center; } input[type="password"]
+      { padding: 10px; width: 100%; margin: 10px 0; } button { padding: 10px;
+      width: 100%; background-color: #4CAF50; color: white; border: none; cursor:
+      pointer; } .result { margin-top: 20px; } /* Additional sections styles
+      */ .news-feed iframe, .threat-intelligence iframe { width: 100%; height:
+      400px; border: none; } /* Matrix effect canvas */ #matrix { position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%; z-index: -1; } /* Content container
+      */ .content { position: relative; z-index: 1; padding: 20px; box-sizing:
+      border-box; } .threat-map { background-color: #333; border-radius: 10px;
+      padding: 20px; margin: 20px auto; max-width: 800px; text-align: left; }
+      /* Header styles */ header { text-align: center; padding-bottom: 20px;
+      } /* Animation for rotating the h1 header */ h1 { animation: spin 5s linear
+      infinite; } /* Keyframes for the spin animation */ @keyframes spin { from
+      { transform: rotateY(0deg); } to { transform: rotateY(360deg); /* Use rotate
+      for a 2D spin */ } } /* Mobile specific adjustments */ @media (max-width:
+      768px) { #matrix { width: 100vw; /* Ensure the canvas covers the full viewport
+      width */ height: 100vh; /* Ensure the canvas covers the full viewport height
+      */ } header h1 { font-size: 2em; /* Adjust font size for smaller screens
+      */ animation: spin 15s linear infinite; /* Slower spin animation on mobile
+      */ } } /* Navigation styles */ nav ul { list-style-type: none; padding:
+      0; margin: 0; } nav ul li { display: inline; margin-right: 15px; } nav
+      ul li a { color: white; text-decoration: none; font-weight: bold; font-size:
+      1.2em; /* Adjust size as needed */ display: inline-block; animation: fadeInOut
+      3s linear infinite; } /* Keyframes for fading in and out */ @keyframes
+      fadeInOut { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } } /* Section
+      styles */ section { padding: 20px; box-sizing: border-box; margin-bottom:
+      20px; text-align: center; } /* Blog container */ #blog { background-color:
+      #333; border-radius: 10px; padding: 20px; margin: 0 auto; max-width: 800px;
+      overflow: hidden; position: relative; } /* Blog posts container */ .blog-posts
+      { display: flex; flex-direction: row; overflow-x: auto; /* Enable horizontal
+      scrolling */ overflow-y: hidden; /* Hide vertical scrolling */ max-height:
+      600px; scroll-snap-type: x mandatory; /* Horizontal snap type */ -webkit-overflow-scrolling:
+      touch; /* Smooth scrolling for touch devices */ } /* Individual blog post
+      */ .blog-post { flex: 0 0 auto; box-sizing: border-box; padding: 20px;
+      scroll-snap-align: start; /* Snap alignment */ background-color: #444;
+      margin-right: 10px; border-radius: 10px; max-width: 300px; max-height:
+      100%; overflow-y: auto; /* Enable vertical scrolling within each post if
+      needed */ } /* Form styles */ form { display: flex; flex-direction: column;
+      margin: 20px auto; max-width: 600px; text-align: left; background-color:
+      #333; padding: 20px; border-radius: 10px; } form label { margin-top: 10px;
+      } form input, form textarea, form button { margin-top: 5px; width: 100%;
+      } /* Footer styles */ footer { text-align: center; padding: 20px; background-color:
+      rgba(0, 0, 0, 0.8); color: #0F0; }
     </style>
-</head>
-<body>
+  </head>
+  
+  <body>
     <!-- Matrix Clock -->
-    <div id="matrixClock"></div>
-
+    <div id="matrixClock">
+    </div>
     <!-- Matrix Effect Canvas -->
-    <canvas id="matrix"></canvas>
-
+    <canvas id="matrix">
+    </canvas>
     <div class="content">
-        <!-- Your other content here -->
+      <!-- Your other content here -->
     </div>
-
     <!-- Matrix effect canvas -->
-    <canvas id="matrix"></canvas>
+    <canvas id="matrix">
+    </canvas>
     <div class="content">
-        <header>
-            <h1>Welcome To My World</h1>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                     <li><a href="#threat-map">ThreatMap</a></li>
-                    <li><a href="#news-feed">Cyber</a></li>
-                    <li><a href="#threat-intelligence">ThreatIntel</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- Home section -->
-        <section id="home">
-            <h2>Home</h2>
-            <p>Don't worry about who I am. I'm just here to help.</p>
-        </section>
-        <section id="blog">
-            <h2>Blog</h2>
-            <div class="blog-posts">
-                <div class="blog-post">
-                    <p>September 2024</p>
-                    <h3>Welcome to My World: Building a Cybersecurity Community</h3>
-                    <p>Welcome to the very first post on <strong>"Welcome to My World"</strong>, a place where cybersecurity enthusiasts, learners, and professionals come together to share knowledge, grow, and support each other. Whether you’re new to cybersecurity or have years of experience under your belt, this blog is designed to help you navigate the ever-evolving landscape of security threats and defense strategies.</p>
-                    <p><strong>Why Cybersecurity?</strong><br>
-                    Cybersecurity isn’t just about protecting data; it’s about safeguarding our digital lives. From personal information to corporate secrets, everything is vulnerable without the right defenses. That’s why I'm passionate about growing this space — to create a community where we can learn together, exchange ideas, and empower each other to become better defenders of the digital world.</p>
-                    <p><strong>What to Expect</strong><br>
-                    In this blog, I’ll cover a variety of topics ranging from threat hunting to vulnerability management, cloud security, and beyond. Here are a few things you can look forward to:
-                    <ul>
-                        <li>Latest Threat Intelligence: Stay updated on emerging cybersecurity threats and how to mitigate them.</li>
-                        <li>How Society Today, Shapes Cybersecurity For The Future: The world is transitioning into a digital realm, new societal norms are emerging. I’ll explore how society and cybersecurity influence one another and shape our future.</li>
-                    </ul>
-                    </p>
-                </div>
-                
-                <!-- Add blog posts here -->
-                <div class="blog-post">
-                    <p>September 2024</p>
-                    <h3>What’s Next in Cybersecurity? Innovations Shaped by Today’s Culture</h3>
-
-<h3><strong>1. Privacy-First Tech</strong>: What’s on the Horizon?</h3>
-
-<p>Everyone’s talking about privacy these days, and for good reason. As people push for better protection of their personal info, we’re likely to see some cool innovations:</p>
-
-	<li><strong>Top-Notch Encryption</strong>: Think of encryption methods that let us work with data without ever decrypting it. This means even if someone intercepts your data, it’s still safe and sound.</li>
-	<li><strong>Decentralized Identities</strong>: Imagine a system where you control your own personal data using blockchain. You’d share only what you want, when you want, without relying on big, vulnerable databases.</li>
-
-<h3>2. AI to the Rescue</h3>
-
-<p>AI is already a big part of our lives, and it’s set to shake up cybersecurity too:</p>
-
-	<li><strong>Predictive Security</strong>: AI will help predict threats before they even hit, using patterns and anomalies to stay ahead of cybercriminals.</li>
-	<li><strong>Behavioral Biometrics</strong>: This tech will get even smarter, analyzing your unique habits like typing speed to make sure it’s really you trying to access your accounts.</li>
-
-<h3>3. Securing the Remote Work Revolution</h3>
-
-<p>With remote work being the norm, cybersecurity is evolving to keep up:</p>
-
-	<li><strong>Zero Trust Models</strong>: Forget about trusting anyone just because they’re inside your network. Zero Trust means always verifying users and devices, no matter where they are.</li>
-	<li><strong>Secure Collaboration</strong>: We’ll see new tools that make working from home safe and secure, keeping sensitive info out of the wrong hands.</li>
-
-<h3>4. IoT Devices: Smart and Secure</h3>
-
-<p>With more and more devices connecting to the internet, security needs to step up:</p>
-
-	<li><strong>Built-In Security</strong>: Expect IoT devices to come with secure security features right from the start, like strong encryption and easy updates.</li>
-	<li><strong>IoT Security Standards</strong>: There will be new standards to make sure all those connected gadgets are up to scratch, reducing risks and keeping things secure.</li>
-
-
-<h3>5. Securing Tomorrow’s Tech</h3>
-
-<p>As new technologies come into play, cybersecurity will need to adapt:</p>
-
-	<li><strong>Quantum-Resistant Encryption</strong>: With quantum computers on the horizon, we’ll develop encryption methods that are stronger than ever.</li>
-	<li><strong>AR/VR Security</strong>: Augmented and virtual reality will need their own security measures to protect these immersive environments from new types of cyber threats.</li>
-
-<h3>Is Cyber Important In Your Life? ... Yet?</h3>
-
-<p>Today’s culture—fueled by a desire for privacy. As these trends continue to evolve, we’ll see new, more advanced ways to protect our digital lives. Staying on top of these changes will help us navigate the future of cyber threats and keep our data safe.</p>
-                </div>
-                <div class="blog-post">
-                    <p>September 2024</p>
-                    <h3>The Online World: Expanding Connections, Shrinking Privacy</h3>
-
-<h3><strong>1. The Power of Connection</strong>: What’s on the Horizon?</h3>
-
-<p>The internet has revolutionized how we meet people. It doesn’t matter where you are — your next conversation could be with someone across the globe. You can connect based on interests, goals, and ideas. No longer are we limited by our physical environments. Some key benefits of this include:</p>
-
-	<li><strong>Global Access</strong>: You can network with anyone, anywhere, at any time.</li>
-	<li><strong>Anonymity</strong>:  You don’t have to share who you really are, which allows you to interact freely without fear of judgment.</li>
-        
-<h3>2. The Tradeoff: Privacy</h3>
-
-<p>With all this freedom and connectivity, privacy takes a hit. While you can be anonymous, so can everyone else — and that’s not always a good thing. What you don’t see behind a username can be dangerous.</p>
-
-	<li><strong>Anonymity Cuts Both Ways</strong>: While you can interact without revealing your identity, so can potential cyber threats. Bad actors hide behind anonymity, just like anyone else.</li>
-	<li><strong>Data Exposure</strong>: The more we connect, the more personal data we share — whether we realize it or not. Every platform and app is collecting information that could be used against you if you’re not careful.</li>
-
-<h3>3. Striking the Balance: Connection vs. Protection</h3>
-
-<p>while the digital world gives us all these opportunities to meet and interact, it also requires us to be more mindful. Privacy is no longer something we can take for granted. We have to work to protect it. Here’s what we can do:</p>
-
-	<li><strong>Use Security Tools</strong>: Forget about trusting anyone just because they’re inside your network. Zero Trust means always verifying users and devices, no matter where they are.</li>
-	<li><strong>Be Skeptical</strong>: Don’t trust everything at face value online. Verify information and be cautious of people asking for personal details.</li>
-
-<h3>Whats Your Approach To Balancing Reality And The Online World?</h3>
-
-<p>The internet is changing the way we connect, but it’s also forcing us to rethink privacy and trust. In cybersecurity, the goal is finding the balance between engaging with the online world and safeguarding ourselves from its risks.</p>
-                </div>
-            </div>
-            
+      <header>
+        <h1>
+          Welcome To My World
+        </h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="#home">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#blog">
+                Blog
+              </a>
+            </li>
+            <li>
+              <a href="#threat-map">
+                ThreatMap
+              </a>
+            </li>
+            <li>
+              <a href="#news-feed">
+                Cyber
+              </a>
+            </li>
+            <li>
+              <a href="#threat-intelligence">
+                ThreatIntel
+              </a>
+            </li>
+            <li>
+              <a href="#contact">
+                Contact
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <!-- Home section -->
+      <section id="home">
+        <h2>
+          Home
+        </h2>
+        <p>
+          Don't worry about who I am. I'm just here to help.
+        </p>
+      </section>
+      <section id="blog">
+        <h2>
+          Blog
+        </h2>
+        <div class="blog-posts">
+          <div class="blog-post">
+            <p>
+              September 2024
+            </p>
+            <h3>
+              Welcome to My World: Building a Cybersecurity Community
+            </h3>
+            <p>
+              Welcome to the very first post on
+              <strong>
+                "Welcome to My World"
+              </strong>
+              , a place where cybersecurity enthusiasts, learners, and professionals
+              come together to share knowledge, grow, and support each other. Whether
+              you’re new to cybersecurity or have years of experience under your belt,
+              this blog is designed to help you navigate the ever-evolving landscape
+              of security threats and defense strategies.
+            </p>
+            <p>
+              <strong>
+                Why Cybersecurity?
+              </strong>
+              <br>
+              Cybersecurity isn’t just about protecting data; it’s about safeguarding
+              our digital lives. From personal information to corporate secrets, everything
+              is vulnerable without the right defenses. That’s why I'm passionate about
+              growing this space — to create a community where we can learn together,
+              exchange ideas, and empower each other to become better defenders of the
+              digital world.
+            </p>
+            <p>
+              <strong>
+                What to Expect
+              </strong>
+              <br>
+              In this blog, I’ll cover a variety of topics ranging from threat hunting
+              to vulnerability management, cloud security, and beyond. Here are a few
+              things you can look forward to:
+              <ul>
+                <li>
+                  Latest Threat Intelligence: Stay updated on emerging cybersecurity threats
+                  and how to mitigate them.
+                </li>
+                <li>
+                  How Society Today, Shapes Cybersecurity For The Future: The world is transitioning
+                  into a digital realm, new societal norms are emerging. I’ll explore how
+                  society and cybersecurity influence one another and shape our future.
+                </li>
+              </ul>
+            </p>
+          </div>
+          <!-- Add blog posts here -->
+          <div class="blog-post">
+            <p>
+              September 2024
+            </p>
+            <h3>
+              What’s Next in Cybersecurity? Innovations Shaped by Today’s Culture
+            </h3>
+            <h3>
+              <strong>
+                1. Privacy-First Tech
+              </strong>
+              : What’s on the Horizon?
+            </h3>
+            <p>
+              Everyone’s talking about privacy these days, and for good reason. As people
+              push for better protection of their personal info, we’re likely to see
+              some cool innovations:
+            </p>
+            <li>
+              <strong>
+                Top-Notch Encryption
+              </strong>
+              : Think of encryption methods that let us work with data without ever
+              decrypting it. This means even if someone intercepts your data, it’s still
+              safe and sound.
+            </li>
+            <li>
+              <strong>
+                Decentralized Identities
+              </strong>
+              : Imagine a system where you control your own personal data using blockchain.
+              You’d share only what you want, when you want, without relying on big,
+              vulnerable databases.
+            </li>
+            <h3>
+              2. AI to the Rescue
+            </h3>
+            <p>
+              AI is already a big part of our lives, and it’s set to shake up cybersecurity
+              too:
+            </p>
+            <li>
+              <strong>
+                Predictive Security
+              </strong>
+              : AI will help predict threats before they even hit, using patterns and
+              anomalies to stay ahead of cybercriminals.
+            </li>
+            <li>
+              <strong>
+                Behavioral Biometrics
+              </strong>
+              : This tech will get even smarter, analyzing your unique habits like typing
+              speed to make sure it’s really you trying to access your accounts.
+            </li>
+            <h3>
+              3. Securing the Remote Work Revolution
+            </h3>
+            <p>
+              With remote work being the norm, cybersecurity is evolving to keep up:
+            </p>
+            <li>
+              <strong>
+                Zero Trust Models
+              </strong>
+              : Forget about trusting anyone just because they’re inside your network.
+              Zero Trust means always verifying users and devices, no matter where they
+              are.
+            </li>
+            <li>
+              <strong>
+                Secure Collaboration
+              </strong>
+              : We’ll see new tools that make working from home safe and secure, keeping
+              sensitive info out of the wrong hands.
+            </li>
+            <h3>
+              4. IoT Devices: Smart and Secure
+            </h3>
+            <p>
+              With more and more devices connecting to the internet, security needs
+              to step up:
+            </p>
+            <li>
+              <strong>
+                Built-In Security
+              </strong>
+              : Expect IoT devices to come with secure security features right from
+              the start, like strong encryption and easy updates.
+            </li>
+            <li>
+              <strong>
+                IoT Security Standards
+              </strong>
+              : There will be new standards to make sure all those connected gadgets
+              are up to scratch, reducing risks and keeping things secure.
+            </li>
+            <h3>
+              5. Securing Tomorrow’s Tech
+            </h3>
+            <p>
+              As new technologies come into play, cybersecurity will need to adapt:
+            </p>
+            <li>
+              <strong>
+                Quantum-Resistant Encryption
+              </strong>
+              : With quantum computers on the horizon, we’ll develop encryption methods
+              that are stronger than ever.
+            </li>
+            <li>
+              <strong>
+                AR/VR Security
+              </strong>
+              : Augmented and virtual reality will need their own security measures
+              to protect these immersive environments from new types of cyber threats.
+            </li>
+            <h3>
+              Is Cyber Important In Your Life? ... Yet?
+            </h3>
+            <p>
+              Today’s culture—fueled by a desire for privacy. As these trends continue
+              to evolve, we’ll see new, more advanced ways to protect our digital lives.
+              Staying on top of these changes will help us navigate the future of cyber
+              threats and keep our data safe.
+            </p>
+          </div>
+          <div class="blog-post">
+            <p>
+              September 2024
+            </p>
+            <h3>
+              The Online World: Expanding Connections, Shrinking Privacy
+            </h3>
+            <h3>
+              <strong>
+                1. The Power of Connection
+              </strong>
+              : What’s on the Horizon?
+            </h3>
+            <p>
+              The internet has revolutionized how we meet people. It doesn’t matter
+              where you are — your next conversation could be with someone across the
+              globe. You can connect based on interests, goals, and ideas. No longer
+              are we limited by our physical environments. Some key benefits of this
+              include:
+            </p>
+            <li>
+              <strong>
+                Global Access
+              </strong>
+              : You can network with anyone, anywhere, at any time.
+            </li>
+            <li>
+              <strong>
+                Anonymity
+              </strong>
+              : You don’t have to share who you really are, which allows you to interact
+              freely without fear of judgment.
+            </li>
+            <h3>
+              2. The Tradeoff: Privacy
+            </h3>
+            <p>
+              With all this freedom and connectivity, privacy takes a hit. While you
+              can be anonymous, so can everyone else — and that’s not always a good thing.
+              What you don’t see behind a username can be dangerous.
+            </p>
+            <li>
+              <strong>
+                Anonymity Cuts Both Ways
+              </strong>
+              : While you can interact without revealing your identity, so can potential
+              cyber threats. Bad actors hide behind anonymity, just like anyone else.
+            </li>
+            <li>
+              <strong>
+                Data Exposure
+              </strong>
+              : The more we connect, the more personal data we share — whether we realize
+              it or not. Every platform and app is collecting information that could
+              be used against you if you’re not careful.
+            </li>
+            <h3>
+              3. Striking the Balance: Connection vs. Protection
+            </h3>
+            <p>
+              while the digital world gives us all these opportunities to meet and interact,
+              it also requires us to be more mindful. Privacy is no longer something
+              we can take for granted. We have to work to protect it. Here’s what we
+              can do:
+            </p>
+            <li>
+              <strong>
+                Use Security Tools
+              </strong>
+              : Forget about trusting anyone just because they’re inside your network.
+              Zero Trust means always verifying users and devices, no matter where they
+              are.
+            </li>
+            <li>
+              <strong>
+                Be Skeptical
+              </strong>
+              : Don’t trust everything at face value online. Verify information and
+              be cautious of people asking for personal details.
+            </li>
+            <h3>
+              Whats Your Approach To Balancing Reality And The Online World?
+            </h3>
+            <p>
+              The internet is changing the way we connect, but it’s also forcing us
+              to rethink privacy and trust. In cybersecurity, the goal is finding the
+              balance between engaging with the online world and safeguarding ourselves
+              from its risks.
+            </p>
+          </div>
+        </div>
         <section id="threat-map">
-            <div class="threat-map">
-                <h2>Real-Time Threat Map</h2>
-                <iframe src="https://livethreatmap.radware.com" title="Real-Time Threat Map" style="width: 100%; height: 500px; border: none;"></iframe>
-            </div>
-         </section>
-		
+          <div class="threat-map">
+            <h2>
+              Real-Time Threat Map
+            </h2>
+            <iframe src="https://livethreatmap.radware.com" title="Real-Time Threat Map"
+            style="width: 100%; height: 500px; border: none;">
+            </iframe>
+          </div>
+        </section>
         <section id="news-feed">
-            <div class="news-feed">
-                <h2>Cybersecurity News Feed</h2>
-                <iframe src="https://www.wired.com/tag/cybersecurity/" allowfullscreen></iframe>
-            </div>
+          <div class="news-feed">
+            <h2>
+              Cybersecurity News Feed
+            </h2>
+            <iframe src="https://www.wired.com/tag/cybersecurity/" allowfullscreen>
+            </iframe>
+          </div>
         </section>
-		
         <section id="threat-intelligence">
-	     <div class="threat-intelligence">
-                 <h2>Real-Time Threat Intelligence Feed</h2>
-                 <iframe src="https://www.darkreading.com/threat-intelligence" allowfullscreen></iframe>
-	     </div>
+          <div class="threat-intelligence">
+            <h2>
+              Real-Time Threat Intelligence Feed
+            </h2>
+            <iframe src="https://www.darkreading.com/threat-intelligence" allowfullscreen>
+            </iframe>
+          </div>
         </section>
-
-        <section id="cyber-name-generator">	
-	<div id="cyber-name-generator">
-          <h3>Hacker Name Generator</h3>
-          <button id="generate-name">Generate Cyber Name</button>
-          <p id="cyber-name">Your Cyber name will appear here.</p>
-       </div>
-	</section>
-
-	<section id="password-checker">
-    <div class="container">
-        <h2>Password Analyzer</h2>
-        <input type="password" id="passwordInput" placeholder="Enter your password" required>
-        <button id="analyzeButton">Check Password</button>
-        <div id="result" class="result"></div>
-    </div>
-    </section>
-	    
+        <section id="cyber-name-generator">
+          <div id="cyber-name-generator">
+            <h3>
+              Hacker Name Generator
+            </h3>
+            <button id="generate-name">
+              Generate Cyber Name
+            </button>
+            <p id="cyber-name">
+              Your Cyber name will appear here.
+            </p>
+          </div>
+        </section>
+        <section id="password-checker">
+          <div class="container">
+            <h2>
+              Password Analyzer
+            </h2>
+            <input type="password" id="passwordInput" placeholder="Enter your password"
+            required>
+            <button id="analyzeButton">
+              Check Password
+            </button>
+            <div id="result" class="result">
+            </div>
+          </div>
+        </section>
         <section id="contact">
-            <h2>Contact</h2>
-            <form action="https://formspree.io/f/xrbzvgbz" method="POST">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
+          <h2>
+            Contact
+          </h2>
+          <form action="https://formspree.io/f/xrbzvgbz" method="POST">
+            <label for="name">
+              Name:
+            </label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">
+              Email:
+            </label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">
+              Message:
+            </label>
+            <textarea id="message" name="message" required>
+            </textarea>
+            <button type="submit">
+              Send
+            </button>
+          </form>
         </section>
         <footer>
-            <p>&copy; 2024 Welcome To My World</p>
+          <p>
+            &copy; 2024 Welcome To My World
+          </p>
         </footer>
     </div>
-    
     <script>
-        // Matrix Clock JavaScript
-        function updateClock() {
-            const now = new Date();
-            const hours = now.getHours().toString().padStart(2, '0');
-            const minutes = now.getMinutes().toString().padStart(2, '0');
-            const seconds = now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('matrixClock').textContent = `${hours}:${minutes}:${seconds}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock(); // Initial call to set clock immediately
+      // Matrix Clock JavaScript
+      function updateClock() {
+        const now = new Date();
+        const hours = now.getHours().toString().padStart(2, '0');
+        const minutes = now.getMinutes().toString().padStart(2, '0');
+        const seconds = now.getSeconds().toString().padStart(2, '0');
+        document.getElementById('matrixClock').textContent = `$ {
+          hours
+        }: $ {
+          minutes
+        }: $ {
+          seconds
+        }`;
+      }
+      setInterval(updateClock, 1000);
+      updateClock(); // Initial call to set clock immediately
+      
     </script>
-
     <!-- Matrix effect script -->
     <script>
-        const canvas = document.getElementById('matrix');
-        const ctx = canvas.getContext('2d');
+      const canvas = document.getElementById('matrix');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      const fontSize = 16;
+      const columns = canvas.width / fontSize;
+      const drops = Array(Math.floor(columns)).fill(1);
+      const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@##$%^&&*()+=?';
+      const charArray = characters.split('');
+      function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#0F0';
+        ctx.font = `$ {
+          fontSize
+        }
+        px monospace`;
+        for (let i = 0; i < drops.length; i++) {
+          const text = charArray[Math.floor(Math.random() * charArray.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+      setInterval(draw, 30);
+      window.onresize = function() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        const fontSize = 16;
-        const columns = canvas.width / fontSize;
-        const drops = Array(Math.floor(columns)).fill(1);
-        const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ!@##$%^&&*()+=?';
-        const charArray = characters.split('');
-        function draw() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#0F0';
-            ctx.font = `${fontSize}px monospace`;
-            for (let i = 0; i < drops.length; i++) {
-                const text = charArray[Math.floor(Math.random() * charArray.length)];
-                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-        }
-        setInterval(draw, 30);
-        window.onresize = function () {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
+      };
     </script>
-    
     <script>
-    document.getElementById("analyzeButton").addEventListener("click", function() {
+      document.getElementById("analyzeButton").addEventListener("click",
+      function() {
         var password = document.getElementById("passwordInput").value;
         var resultElement = document.getElementById("result");
 
         var result = validatePassword(password);
         resultElement.textContent = result;
-    });
+      });
 
-    function validatePassword(password) {
+      function validatePassword(password) {
         if (password.length < 8) {
-            return "Not Valid Password: Too short";
+          return "Not Valid Password: Too short";
         } else if (!/[a-z]/.test(password)) {
-            return "Not Valid Password: No lowercase letter";
+          return "Not Valid Password: No lowercase letter";
         } else if (!/[A-Z]/.test(password)) {
-            return "Not Valid Password: No uppercase letter";
+          return "Not Valid Password: No uppercase letter";
         } else if (!/[0-9]/.test(password)) {
-            return "Not Valid Password: No number";
+          return "Not Valid Password: No number";
         } else if (!/[!@#$%&]/.test(password)) {
-            return "Not Valid Password: No special character";
+          return "Not Valid Password: No special character";
         } else {
-            return "Valid Password";
+          return "Valid Password";
         }
-    }
-   </script>
-	<!-- Hacker Namer Gen script -->
-   <script>
-	document.getElementById('generate-name').addEventListener('click', function() {
-    var adjectives = [
-        "Cyber", "Shadow", "Ninja", "Quantum", "Phantom", "Stealth", "Dark", "Silent",
-        "Rogue", "Mystic", "Digital", "Venom", "Ice", "Thunder", "Inferno", "Eclipse",
-        "Spectral", "Blazing", "Savage", "Twilight", "Vortex", "Nebula", "Iron", "Savage",
-        "Hacker", "Ghost", "Maverick", "Silent", "Fury", "Ghostly", "Electric", "Enigma"
-    ];
-    var nouns = [
-        "Wolf", "Dragon", "Falcon", "Hawk", "Raven", "Viper", "Phoenix", "Tiger",
-        "Panther", "Griffin", "Leopard", "Wraith", "Reaper", "Specter", "Serpent", "Shark",
-        "Golem", "Lion", "Jaguar", "Mantis", "Talon", "Cobra", "Puma", "Falcon",
-        "Mammoth", "Titan", "Centurion", "Storm", "Beast", "Raptor", "Raven", "Demon"
-    ];
-	    
-	    var randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
-	    var randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
-	    
-	    var hackerName = randomAdjective + " " + randomNoun;
-	    document.getElementById('hacker-name').textContent = hackerName;
-	});
+      }
     </script>
-	
-</body>
-</html>
+    <!-- Hacker Namer Gen script -->
+    <script>
+      document.getElementById('generate-name').addEventListener('click',
+      function() {
+        var adjectives = ["Cyber", "Shadow", "Ninja", "Quantum", "Phantom", "Stealth", "Dark", "Silent", "Rogue", "Mystic", "Digital", "Venom", "Ice", "Thunder", "Inferno", "Eclipse", "Spectral", "Blazing", "Savage", "Twilight", "Vortex", "Nebula", "Iron", "Savage", "Hacker", "Ghost", "Maverick", "Silent", "Fury", "Ghostly", "Electric", "Enigma"];
+        var nouns = ["Wolf", "Dragon", "Falcon", "Hawk", "Raven", "Viper", "Phoenix", "Tiger", "Panther", "Griffin", "Leopard", "Wraith", "Reaper", "Specter", "Serpent", "Shark", "Golem", "Lion", "Jaguar", "Mantis", "Talon", "Cobra", "Puma", "Falcon", "Mammoth", "Titan", "Centurion", "Storm", "Beast", "Raptor", "Raven", "Demon"];
 
+        var randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+        var randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+
+        var hackerName = randomAdjective + " " + randomNoun;
+        document.getElementById('hacker-name').textContent = hackerName;
+      });
+    </script>
+  </body>
+
+</html>
 </body>
+
 </html>
