@@ -15,10 +15,26 @@
             z-index: -1; /* Keeps the matrix effect behind the content */
             background-color: black; /* Ensures the background is black */
         }
-        /* Ensure body takes full height and has no margin */
+        
+        /* Body style */
         body, html {
             height: 100%;
             margin: 0;
+            font-family: 'PT Serif', serif;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        
+        /* Content container */
+        #content {
+            z-index: 1; /* Ensures content stays in front of the canvas */
+            position: relative;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -26,6 +42,13 @@
 
     <!-- Canvas for Matrix Effect -->
     <canvas id="matrixBackground"></canvas>
+
+    <!-- Main Content -->
+    <div id="content">
+        <h1>projects</h1>
+        <p>Your text content goes here. This is your homepage with the Matrix effect in the background.</p>
+        <p>You can add your projects, blog links, and more.</p>
+    </div>
 
     <script>
         // Get the canvas element and its drawing context
