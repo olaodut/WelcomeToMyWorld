@@ -1,200 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects - Welcome to My World</title>
-  <style>
-    /* General styles */
-    body {
-      background: black; /* Matrix background */
-      color: white; /* Text color */
-      font-family: 'PT Serif', serif;
-      margin: 0;
-      padding: 0;
-      overflow: hidden; /* Prevent scrollbars */
-    }
-
-    .container {
-      width: 80%;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .section {
-      margin: 20px 0;
-    }
-
-    .section-title {
-      font-size: 2em;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    /* Matrix effect */
-    .matrix {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    
-
-    /* Projects slider */
-    .projects-slider {
-      overflow: hidden;
-      width: 100%;
-      position: relative;
-    }
-
-    .projects-container {
-      display: flex;
-      transition: transform 0.5s ease;
-      width: 100%;
-    }
-
-    .project {
-      min-width: 300px;
-      margin: 10px;
-      background: rgba(0, 0, 0, 0.7);
-      border: 1px solid #00ff00;
-      padding: 10px;
-      border-radius: 5px;
-      flex: 0 0 auto; /* Prevent shrinking */
-    }
-
-    .project h3 {
-      margin: 0;
-    }
-
-    .project p {
-      margin: 10px 0;
-    }
-
-    a {
-      color: #00ff00;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Navigation styles */
-    header {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.5);
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav ul li {
-      margin: 0 10px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.5);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Effect</title>
+    <style>
+        /* Matrix effect canvas */
+        #matrixBackground {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keeps the matrix effect behind the content */
+            background-color: black; /* Ensures the background is black */
+        }
+        /* Ensure body takes full height and has no margin */
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Matrix effect -->
-  <div class="matrix">
-    <canvas id="matrix class="matrix"></canvas>
-  </div>
+    <!-- Canvas for Matrix Effect -->
+    <canvas id="matrixBackground"></canvas>
 
-  <!-- Navigation -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="projects.html">Projects</a></li>
-        <!-- Add other navigation links as needed -->
-      </ul>
-    </nav>
-  </header>
+    <script>
+        // Get the canvas element and its drawing context
+        const canvas = document.getElementById("matrixBackground");
+        const ctx = canvas.getContext("2d");
 
-  <!-- Projects section -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="projects-slider">
-        <div class="projects-container">
-          <!-- Example project 1 -->
-          <div class="project">
-            <h3>CyberClock</h3>
-            <p>A Python-based desktop clock that incorporates cybersecurity elements. [<a href="https://github.com/olaodut/Ola-DesktopClock">GitHub Repo</a>]</p>
-          </div>
-          <!-- Example project 2 -->
-          <div class="project">
-            <h3>Password Analyzer</h3>
-            <p>A tool designed to analyze password strength and vulnerabilities.</p>
-          </div>
-          <!-- Add more projects as needed -->
-        </div>
-      </div>
-    </div>
-  </section>
+        // Set the canvas dimensions to full screen
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-  <footer>
-    <p>&copy; 2024 Welcome to My World</p>
-  </footer>
+        // Characters for the Matrix effect
+        const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+        const fontSize = 16; // Font size for characters
+        const columns = canvas.width / fontSize; // Number of columns
+        const drops = []; // Y-position of each column
 
-  <!-- Matrix effect JavaScript -->
-  <script>
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+        // Initialize drops array
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
 
-    const cols = canvas.width / 20;
-    const rows = canvas.height / 20;
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        // Function to draw the Matrix effect
+        function drawMatrix() {
+            // Create a translucent black background to get the trailing effect
+            ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    function drawMatrix() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#00ff00';
-      ctx.font = '20px monospace';
-      for (let i = 0; i < cols; i++) {
-        const text = chars.charAt(Math.floor(Math.random() * chars.length));
-        const x = i * 20;
-        const y = Math.random() * canvas.height;
-        ctx.fillText(text, x, y);
-      }
-    }
+            // Set the font and color for the matrix effect
+            ctx.fillStyle = "#0F0"; // Matrix green
+            ctx.font = fontSize + "px monospace"; // Use monospace font
 
-    setInterval(drawMatrix, 50);
+            // Loop over drops to draw the characters
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
+                // Reset drop to the top with a small chance
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
 
+                // Increment y position (drop down)
+                drops[i]++;
+            }
+        }
+
+        // Redraw the Matrix effect every 50ms
+        setInterval(drawMatrix, 50);
+
+        // Adjust canvas size when the window is resized
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>
