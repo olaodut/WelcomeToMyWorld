@@ -15,7 +15,7 @@
             z-index: -1; /* Keeps the matrix effect behind the content */
             background-color: black; /* Ensures the background is black */
         }
-        
+
         /* Body style */
         body, html {
             height: 100%;
@@ -27,7 +27,23 @@
             align-items: center;
             text-align: center;
         }
-        
+
+        /* Top navigation link */
+        #homeLink {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-family: 'PT Serif', serif;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #homeLink:hover {
+            text-decoration: underline;
+        }
+
         /* Content container */
         #content {
             z-index: 1; /* Ensures content stays in front of the canvas */
@@ -36,16 +52,6 @@
             background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
             border-radius: 10px;
         }
-
-        a {
-            color: #0F0; /* Matrix green for link */
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
     </style>
 </head>
 <body>
@@ -53,14 +59,14 @@
     <!-- Canvas for Matrix Effect -->
     <canvas id="matrixBackground"></canvas>
 
+    <!-- Home Link at the Top -->
+    <a href="index.html" id="homeLink">Home</a>
+
     <!-- Main Content -->
     <div id="content">
         <h1>Projects</h1>
         <p>Your text content goes here. This is a page with the Matrix effect in the background.</p>
         <p>You can add your projects, blog links, and more here.</p>
-
-        <!-- Navigation link back to index -->
-        <p><a href="index.html">Back to Home/Index</a></p>
     </div>
 
     <script>
