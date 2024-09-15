@@ -519,33 +519,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         setInterval(updateClock, 1000);
         updateClock(); // Initial call to set clock immediately
     </script>
+				
+				
+      <script>
+    // Get the canvas element and its drawing context
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
 
-    <!-- Matrix effect JavaScript -->
-  <script>
-    const canvas = document.getElementById('matrix-canvas');
-    const ctx = canvas.getContext('2d');
+    // Set the canvas dimensions to full screen
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const cols = canvas.width / 20;
-    const rows = canvas.height / 20;
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    // String of characters to be used in the Matrix effect
+    const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+    const fontSize = 16; // Font size for the characters
+    const columns = canvas.width / fontSize; // Number of columns of characters
+    const drops = []; // Array to store the y-position of each column (drop)
 
+    // Initialize the drops array (each column starts at y = 1)
+    for (let x = 0; x < columns; x++) {
+      drops[x] = 1;
+    }
+
+    // Function to draw the Matrix effect
     function drawMatrix() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      // Fills the entire screen with a transparent black to create the trailing effect
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#00ff00';
-      ctx.font = '20px monospace';
-      for (let i = 0; i < cols; i++) {
-        const text = chars.charAt(Math.floor(Math.random() * chars.length));
-        const x = i * 20;
-        const y = Math.random() * canvas.height;
-        ctx.fillText(text, x, y);
+
+      // Set the color to Matrix green and the font size
+      ctx.fillStyle = "#0F0"; // Matrix green color
+      ctx.font = fontSize + "px monospace"; // Monospace font for Matrix effect
+
+      // Loop through the drops array to draw characters
+      for (let i = 0; i < drops.length; i++) {
+        // Randomly pick a character from the matrixChars string
+        const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+
+        // Draw the character at the i-th column and the current drop position
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // If the drop reaches the bottom of the screen, reset it to the top
+        // 97.5% chance to keep moving down, 2.5% chance to reset to the top
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        // Move the drop down by increasing its y-position
+        drops[i]++;
       }
     }
 
+    // Call the drawMatrix function every 50 milliseconds to animate the effect
     setInterval(drawMatrix, 50);
 
+    // Event listener to resize the canvas when the window is resized
     window.addEventListener('resize', () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
