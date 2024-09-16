@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPU-WTMW</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background: black;
+    font-family: 'PT Serif', serif;
+}
+
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.chat-container {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    width: 300px; /* Adjust as needed */
+    max-width: 400px;
+    background-color: rgba(30, 30, 30, 0.9);
+    border: 2px solid #00ffff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 0, 0.6);
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1; /* Ensure chat container is above the background */
+}
+
+.messages {
+    width: 100%;
+    height: 300px;
+    overflow-y: auto;
+    background-color: #111;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    color: #00ffff;
+    font-size: 14px;
+    font-family: 'PT Serif', serif;
+}
+
+.message {
+    margin-bottom: 10px;
+}
+
+.message.user {
+    text-align: right;
+}
+
+.message.bot {
+    text-align: left;
+}
+
+.input-container {
+    display: flex;
+    width: 100%;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    background-color: #333;
+    border: 2px solid #00ffff;
+    border-radius: 4px;
+    color: white;
+    font-family: 'PT Serif', serif;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+button {
+    padding: 8px;
+    background-color: #00ffff;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #00ffff;
+}
+
+.clock {
+    font-size: 20px;
+    color: #00ffff;
+    margin-bottom: 10px;
+}
+
+.neon-text {
+    color: #00ffff;
+    text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
+    font-family: 'PT Serif', serif;
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <canvas id="matrixCanvas"></canvas>
+    <div class="background" id="background"></div>
+    
+    
+    <div class="chat-container">
+        <h1 class="neon-text">CPU-WTMW</h1>
+        <div class="clock" id="clock"></div>
+        <div class="messages" id="message-box">
+            <!-- Chat messages will appear here -->
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type anything..." />
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+<script>
+    let userName = "";  // Store the user's name
+    let memory = [];    // Conversation context
+
+    const initialPrompt = "Which Agent Am I Speaking With?";
+    const genericResponses = [
+        "Scanning... tell me more.",
+        "Processing input... what else?",
+        "Data received, continue...",
+        "Interesting... let's dive deeper.",
+        "Let's keep going, Agent.",
+        "What other data can you provide?",
+        "Analyzing... please elaborate.",
+        "More details, if you please.",
+        "System online, continue communication.",
+        "Awaiting further input, Agent."
+    ];
+
+    function initChat() {
+        appendMessage("bot", initialPrompt);
+    }
+
+    function sendMessage() {
+        const userInput = document.getElementById('user-input').value.trim();
+        if (!userInput) return;
+
+        appendMessage("user", userInput);
+        handleBotResponse(userInput);
+        document.getElementById('user-input').value = '';  // Clear the input after sending
+    }
+
+    function appendMessage(sender, message) {
+        const messageBox = document.getElementById('message-box');
+        const newMessage = document.createElement('div');
+        newMessage.classList.add('message', sender);
+        newMessage.textContent = message;
+        messageBox.appendChild(newMessage);
+        messageBox.scrollTop = messageBox.scrollHeight;  // Auto-scroll to bottom
+    }
+
+    function handleBotResponse(input) {
+        if (!userName) {
+            userName = input;
+            appendMessage("bot", `Welcome, Agent ${userName}. I am ready for any conversation.`);
+        } else {
+            memory.push(input);  // Store the user’s input in memory
+            const randomResponse = genericResponses[Math.floor(Math.random() * genericResponses.length)];
+            appendMessage("bot", randomResponse);
+        }
+    }
+
+    function updateClock() {
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    // Initialize chat with a prompt
+    initChat();
+
+    // Update the clock every second
+    setInterval(updateClock, 1000);
+    updateClock();  // Initial call to set clock immediately
+
+    // Get the canvas element and its drawing context
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Set the canvas dimensions to full screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // String of characters to be used in the Matrix effect
+    const matrixChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+    const fontSize = 16; // Font size for the characters
+    const columns = canvas.width / fontSize; // Number of columns of characters
+    const drops = []; // Array to store the y-position of each column (drop)
+
+    // Initialize the drops array (each column starts at y = 1)
+    for (let x = 0; x < columns; x++) {
+      drops[x] = 1;
+    }
+
+    // Function to draw the Matrix effect
+    function drawMatrix() {
+      // Fills the entire screen with a transparent black to create the trailing effect
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Set the color to Matrix green and the font size
+      ctx.fillStyle = "#00ffff"; // Matrix green color
+      ctx.font = fontSize + "px monospace"; // Monospace font for Matrix effect
+
+      // Loop through the drops array to draw characters
+      for (let i = 0; i < drops.length; i++) {
+        // Randomly pick a character from the matrixChars string
+        const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+
+        // Draw the character at the i-th column and the current drop position
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // If the drop reaches the bottom of the screen, reset it to the top
+        // 97.5% chance to keep moving down, 2.5% chance to reset to the top
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        // Move the drop down by increasing its y-position
+        drops[i]++;
+      }
+    }
+
+    // Call the drawMatrix function every 50 milliseconds to animate the effect
+    setInterval(drawMatrix, 50);
+
+    // Event listener to resize the canvas when the window is resized
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+</script>
+
+</body>
+</html>
