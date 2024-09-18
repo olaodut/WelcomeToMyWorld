@@ -813,9 +813,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
 </script>
 	
-	<script>
-	
-	let currentSlide = 0;
+let currentSlide = 0;
 
 function showSlide(index, carouselId) {
     const carousel = document.querySelector(`#${carouselId} .carousel`);
@@ -823,11 +821,11 @@ function showSlide(index, carouselId) {
 
     // Ensure the index stays within bounds
     if (index >= totalSlides) {
-        currentSlide = 0;
+        currentSlide = 0; // Reset to the first slide if index exceeds the total
     } else if (index < 0) {
-        currentSlide = totalSlides - 1;
+        currentSlide = totalSlides - 1; // Move to the last slide if index is less than 0
     } else {
-        currentSlide = index;
+        currentSlide = index; // Otherwise, set the current slide to the index
     }
 
     // Move the carousel to show the selected slide
@@ -836,35 +834,40 @@ function showSlide(index, carouselId) {
 }
 
 function nextSlide() {
-    const activeCarousel = document.querySelector('.blog-post-carousel[style*="block"]');
-    const carouselId = activeCarousel.id;
-    showSlide(currentSlide + 1, carouselId);
+    const activeCarousel = document.querySelector('.blog-post-carousel.active');
+    if (activeCarousel) {
+        const carouselId = activeCarousel.id;
+        showSlide(currentSlide + 1, carouselId);
+    }
 }
 
 function prevSlide() {
-    const activeCarousel = document.querySelector('.blog-post-carousel[style*="block"]');
-    const carouselId = activeCarousel.id;
-    showSlide(currentSlide - 1, carouselId);
+    const activeCarousel = document.querySelector('.blog-post-carousel.active');
+    if (activeCarousel) {
+        const carouselId = activeCarousel.id;
+        showSlide(currentSlide - 1, carouselId);
+    }
 }
 
 function filterBlogsByMonth() {
     const selectedMonth = document.getElementById("month-select").value;
     const blogPosts = document.querySelectorAll('.blog-post-carousel');
 
-    // Hide all blog post carousels
+    // Hide all blog post carousels and remove 'active' class
     blogPosts.forEach(function(post) {
         post.style.display = 'none';
+        post.classList.remove('active');
     });
 
     // Show the selected month's blog post carousel
     if (selectedMonth) {
-        document.getElementById(selectedMonth).style.display = 'block';
+        const selectedCarousel = document.getElementById(selectedMonth);
+        selectedCarousel.style.display = 'block';
+        selectedCarousel.classList.add('active'); // Add active class for easy selection
         currentSlide = 0; // Reset slide to the first one
         showSlide(currentSlide, selectedMonth); // Show the first slide
     }
 }
-
-</script>
 	
 </body>
 </html>
