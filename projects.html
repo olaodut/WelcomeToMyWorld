@@ -38,13 +38,16 @@
             color: white;
             text-decoration: none;
             font-weight: bold;
-            z-index: 10;
+            z-index: 10; /* Ensures the link stays above the canvas */
         }
 
+        #homeLink:hover {
+            text-decoration: underline;
+        }
 
         /* Content container */
         #content {
-            z-index: 1; /* Ensures content stays in front of the canvas */
+            z-index: 2; /* Ensures content stays in front of the canvas */
             position: relative;
             padding: 20px;
             background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
@@ -54,12 +57,12 @@
 
         /* Headings and paragraph styles */
         h1 {
-            font-size: 36px;
+            font-size: 32px; /* Adjusted for mobile */
             margin-bottom: 20px;
         }
 
         h2 {
-            font-size: 24px;
+            font-size: 22px; /* Adjusted for mobile */
             margin-top: 20px;
             margin-bottom: 10px;
         }
@@ -68,6 +71,32 @@
             font-size: 18px;
             margin-bottom: 15px;
             line-height: 1.6;
+        }
+
+        ul, ol {
+            text-align: left; /* Align lists to the left for readability */
+            padding-left: 30px;
+        }
+
+        /* Fix for mobile text overlap */
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            p, ul, ol {
+                font-size: 16px;
+            }
+
+            #homeLink {
+                top: 10px; /* Move home link a bit higher on mobile */
+                left: 20px;
+                font-size: 16px;
+            }
         }
 
         /* Sign up button */
@@ -81,6 +110,7 @@
             border-radius: 5px;
             margin-top: 20px;
             display: inline-block;
+            z-index: 2; /* Ensures the button is above the canvas */
         }
 
         .cta-button:hover {
