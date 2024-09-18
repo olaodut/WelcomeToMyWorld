@@ -282,115 +282,6 @@
             background-color: rgba(0, 0, 0, 0.8);
             color: #0F0;
         }
-								
-								
-								
-								/* Basic styling for carousel */
-.blog-post-carousel {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    margin: 20px 0;
-}
-
-.carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    will-change: transform;
-}
-
-.carousel-item {
-    min-width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    background-color: #f4f4f4; /* Light background for each slide */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    transition: background-color 0.3s ease; /* Smooth background color transition */
-}
-
-.carousel-item h3 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.carousel-item p {
-    color: #666;
-    line-height: 1.6;
-}
-
-.carousel-item:hover {
-    background-color: #e9e9e9; /* Slight hover effect to highlight the blog post */
-}
-
-/* Carousel navigation buttons */
-.carousel-prev, .carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.7); /* Darker button background for better contrast */
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    font-size: 1.5em;
-    border-radius: 50%;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-}
-
-.carousel-prev:hover, .carousel-next:hover {
-    background-color: rgba(0, 0, 0, 0.9); /* Darker on hover */
-}
-
-.carousel-prev {
-    left: -20px; /* Move the button further left */
-}
-
-.carousel-next {
-    right: -20px; /* Move the button further right */
-}
-
-/* Ensure buttons don't overlap with content */
-.carousel-prev, .carousel-next {
-    top: 50%; /* Center vertically */
-    width: 40px;
-    height: 40px;
-    z-index: 100;
-}
-
-.carousel-prev:hover, .carousel-next:hover {
-    background-color: rgba(0, 0, 0, 0.9); /* Darken on hover */
-}
-
-/* Responsive styling for smaller screens */
-@media (max-width: 768px) {
-    .carousel-item {
-        padding: 15px;
-    }
-
-    .carousel-prev, .carousel-next {
-        padding: 8px;
-        font-size: 1.2em;
-        width: 35px; /* Reduce size for smaller screens */
-        height: 35px;
-    }
-
-    .carousel-prev {
-        left: -15px; /* Adjust left button */
-    }
-
-    .carousel-next {
-        right: -15px; /* Adjust right button */
-    }
-}			
-								
     </style>
 </head>
 <body>
@@ -431,20 +322,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <section id="blog">
             <h2>Blog</h2>
-												
-												
-												    <!-- Dropdown for selecting the month -->
-            <label for="month-select">Choose a month:</label>
-            <select id="month-select" onchange="filterBlogsByMonth()">
-                <option value="">--Select a Month--</option>
-                <option value="september-2024">September 2024</option>
-                <option value="october-2024">October 2024</option>
-                <!-- Add more months here -->
-            </select>
-
-            <!-- Blog post carousel for September 2024 -->
-           <div id="september-2024-carousel" class="blog-post-carousel" style="display: none;">
-    <div class="carousel">
+            <div class="blog-posts">
+                <div class="blog-post">
                     <p>September 2024</p>
                     <h3>Welcome to My World: Building a Cybersecurity Community</h3>
                     <p>Welcome to the very first post on <strong>"Welcome to My World"</strong>, a place where cybersecurity enthusiasts, learners, and professionals come together to share knowledge, grow, and support each other. Whether you’re new to cybersecurity or have years of experience under your belt, this blog is designed to help you navigate the ever-evolving landscape of security threats and defense strategies.</p>
@@ -457,10 +336,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <li>How Society Today, Shapes Cybersecurity For The Future: The world is transitioning into a digital realm, new societal norms are emerging. I’ll explore how society and cybersecurity influence one another and shape our future.</li>
                     </ul>
                     </p>
+                </div>
                 
-                <div class="carousel-item">
-																        
-             
+                <!-- Add blog posts here -->
+                <div class="blog-post">
                     <p>September 2024</p>
                     <h3>What’s Next in Cybersecurity? Innovations Shaped by Today’s Culture</h3>
 
@@ -503,9 +382,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <h3>Is Cyber Important In Your Life? ... Yet?</h3>
 
 <p>Today’s culture—fueled by a desire for privacy. As these trends continue to evolve, we’ll see new, more advanced ways to protect our digital lives. Staying on top of these changes will help us navigate the future of cyber threats and keep our data safe.</p>
-                
-																<div class="carousel-item">
-                
+                </div>
+                <div class="blog-post">
                     <p>September 2024</p>
                     <h3>The Online World: Expanding Connections, Shrinking Privacy</h3>
 
@@ -533,9 +411,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<h3>Whats Your Approach To Balancing Reality And The Online World?</h3>
 		
 		<p>The internet is changing the way we connect, but it’s also forcing us to rethink privacy and trust. In cybersecurity, the goal is finding the balance between engaging with the online world and safeguarding ourselves from its risks.</p>
-                
-																<div class="carousel-item">
-																	
+                </div>
+
+		    <!-- Blog Num 4 -->
+		     <div class="blog-post">
                     <p>September 2024</p>
 			    <h3>Social Engineering in the Digital Age: Modern Threats and Defense Strategies</h3>
 			    <p>Social engineering exploits human behavior rather than technical flaws. With the rise of digital platforms, these tactics have become more sophisticated, targeting personal and professional information.</p>
@@ -568,11 +447,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			    
 			     <h3>You Can Never Be Too Careful!</h3>
 			    <p>Understanding and defending against social engineering requires a mix of awareness, verification, and strong security practices. As tactics evolve, staying informed and proactive is essential.</p>
-                    
+                    </div>
 		    
-						<div class="carousel-item">
-							
-								<p>September 2024</p>
+						
+						<div class="blog-post">
+							<p>September 2024</p>
   <h3>Decoding Hyperreality in Cybersecurity: Understanding the New Frontier of Digital Threats</h3>
   <p>We live in a world where the line between reality and the virtual is more blurred than ever. In cybersecurity, this is what I like to call the "hyperreality effect" — a landscape where simulated attacks, false positives, and real threats intertwine. So how do we navigate this? That’s where threat intelligence comes in.</p>
   
@@ -595,10 +474,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <p>The distinction between genuine and simulated threats is becoming increasingly difficult to detect. As the lines between the real and the fake continue to blur, organizations need to enhance their vigilance. This requires not just tools, but a mindset geared towards continuous awareness and adaptation. The ability to distinguish real threats from deceptive ones could be the defining factor in how businesses protect their assets and data in the future.</p>
 </div>
 						
-						<!-- Controls for sliding -->
-                <button class="carousel-prev" onclick="prevSlide()">&#10094;</button>
-                <button class="carousel-next" onclick="nextSlide()">&#10095;</button>
-           
 		    
             </div>
 												
@@ -773,77 +648,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	    document.getElementById('cyber-name').textContent = cyberName;
 	});
     </script>
-				
-				<script>
-    function filterBlogsByMonth() {
-        // Get the selected month
-        var selectedMonth = document.getElementById("month-select").value;
-
-        // Get all blog sections for each month
-        var blogPosts = document.querySelectorAll('.blog-post');
-
-        // Hide all blog sections first
-        blogPosts.forEach(function(post) {
-            post.style.display = 'none';
-        });
-
-        // Show the selected month's blog posts
-        if (selectedMonth) {
-            document.getElementById(selectedMonth).style.display = 'block';
-        }
-    }
-</script>
-	
-	<script>
-let currentSlide = 0;
-
-function showSlide(index, carouselId) {
-    const carousel = document.querySelector(`#${carouselId} .carousel`);
-    const totalSlides = carousel.children.length;
-
-    // Ensure the index stays within bounds
-    if (index >= totalSlides) {
-        currentSlide = 0; // Reset to the first slide if index exceeds the total
-    } else if (index < 0) {
-        currentSlide = totalSlides - 1; // Move to the last slide if index is less than 0
-    } else {
-        currentSlide = index; // Otherwise, set the current slide to the index
-    }
-
-    // Move the carousel to show the selected slide
-    const offset = -currentSlide * 100; // Adjust based on slide width (100%)
-    carousel.style.transform = `translateX(${offset}%)`;
-}
-
-function nextSlide() {
-    const activeCarousel = document.querySelector('.blog-post-carousel[style*="block"]');
-    const carouselId = activeCarousel.id;
-    showSlide(currentSlide + 1, carouselId);
-}
-
-function prevSlide() {
-    const activeCarousel = document.querySelector('.blog-post-carousel[style*="block"]');
-    const carouselId = activeCarousel.id;
-    showSlide(currentSlide - 1, carouselId);
-}
-
-function filterBlogsByMonth() {
-    const selectedMonth = document.getElementById("month-select").value;
-    const blogPosts = document.querySelectorAll('.blog-post-carousel');
-
-    // Hide all blog post carousels
-    blogPosts.forEach(function(post) {
-        post.style.display = 'none';
-    });
-
-    // Show the selected month's blog post carousel
-    if (selectedMonth) {
-        document.getElementById(`${selectedMonth}-carousel`).style.display = 'block';
-        currentSlide = 0; // Reset slide to the first one
-        showSlide(currentSlide, `${selectedMonth}-carousel`); // Show the first slide
-    }
-}
-</script>
 	
 </body>
 </html>
