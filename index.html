@@ -322,8 +322,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <section id="blog">
             <h2>Blog</h2>
-            <div class="blog-posts">
-                <div class="blog-post">
+												
+												
+												   <!-- Dropdown for selecting the month -->
+    <label for="month-select">Choose a month:</label>
+    <select id="month-select" onchange="filterBlogsByMonth()">
+        <option value="">--Select a Month--</option>
+        <option value="september-2024">September 2024</option>
+        <option value="october-2024">August 2024</option>
+        <!-- Add more months here -->
+    </select>
+												
+            <div id="september-2024" class="blog-post" style="display: none;">
                     <p>September 2024</p>
                     <h3>Welcome to My World: Building a Cybersecurity Community</h3>
                     <p>Welcome to the very first post on <strong>"Welcome to My World"</strong>, a place where cybersecurity enthusiasts, learners, and professionals come together to share knowledge, grow, and support each other. Whether you’re new to cybersecurity or have years of experience under your belt, this blog is designed to help you navigate the ever-evolving landscape of security threats and defense strategies.</p>
@@ -339,7 +349,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
                 
                 <!-- Add blog posts here -->
-                <div class="blog-post">
+                <div id="september-2024" class="blog-post" style="display: none;">
                     <p>September 2024</p>
                     <h3>What’s Next in Cybersecurity? Innovations Shaped by Today’s Culture</h3>
 
@@ -383,7 +393,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Today’s culture—fueled by a desire for privacy. As these trends continue to evolve, we’ll see new, more advanced ways to protect our digital lives. Staying on top of these changes will help us navigate the future of cyber threats and keep our data safe.</p>
                 </div>
-                <div class="blog-post">
+                <div id="september-2024" class="blog-post" style="display: none;">
                     <p>September 2024</p>
                     <h3>The Online World: Expanding Connections, Shrinking Privacy</h3>
 
@@ -414,7 +424,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
 		    <!-- Blog Num 4 -->
-		     <div class="blog-post">
+		     <div id="september-2024" class="blog-post" style="display: none;">
                     <p>September 2024</p>
 			    <h3>Social Engineering in the Digital Age: Modern Threats and Defense Strategies</h3>
 			    <p>Social engineering exploits human behavior rather than technical flaws. With the rise of digital platforms, these tactics have become more sophisticated, targeting personal and professional information.</p>
@@ -450,8 +460,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
 		    
 						
-						<div class="blog-post">
-							<p>September 2024</p>
+						<div id="september-2024" class="blog-post" style="display: none;">
+								<p>September 2024</p>
   <h3>Decoding Hyperreality in Cybersecurity: Understanding the New Frontier of Digital Threats</h3>
   <p>We live in a world where the line between reality and the virtual is more blurred than ever. In cybersecurity, this is what I like to call the "hyperreality effect" — a landscape where simulated attacks, false positives, and real threats intertwine. So how do we navigate this? That’s where threat intelligence comes in.</p>
   
@@ -648,6 +658,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	    document.getElementById('cyber-name').textContent = cyberName;
 	});
     </script>
+				
+				<script>
+    function filterBlogsByMonth() {
+        // Get the selected month
+        var selectedMonth = document.getElementById("month-select").value;
+
+        // Get all blog sections for each month
+        var blogPosts = document.querySelectorAll('.blog-post');
+
+        // Hide all blog sections first
+        blogPosts.forEach(function(post) {
+            post.style.display = 'none';
+        });
+
+        // Show the selected month's blog posts
+        if (selectedMonth) {
+            document.getElementById(selectedMonth).style.display = 'block';
+        }
+    }
+</script>
 	
 </body>
 </html>
