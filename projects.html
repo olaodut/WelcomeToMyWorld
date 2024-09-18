@@ -29,32 +29,32 @@
         }
 
         /* Top navigation link */
-        #homeLink {
-            position: fixed;
-            top: 20px;
-            left: 170px;
-            font-family: 'PT Serif', serif;
-            font-size: 18px;
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            z-index: 10; /* Ensures the link stays above the canvas */
-        }
+#homeLink {
+    position: fixed;
+    top: 10px; /* Moved further to the top */
+    left: 20px; /* Adjusted left padding */
+    font-family: 'PT Serif', serif;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 10; /* Ensures the link stays above the canvas */
+}
 
-        #homeLink:hover {
-            text-decoration: underline;
-        }
+#homeLink:hover {
+    text-decoration: underline;
+}
 
-        /* Content container */
-        #content {
-            z-index: 2; /* Ensures content stays in front of the canvas */
-            position: relative;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
-            border-radius: 10px;
-            max-width: 900px;
-        }
-
+/* Content container */
+#content {
+    z-index: 2; /* Ensures content stays in front of the canvas */
+    position: relative;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    border-radius: 10px;
+    max-width: 900px;
+    margin-top: 60px; /* Added margin to push content below Home link */
+}
         /* Headings and paragraph styles */
         h1 {
             font-size: 32px; /* Adjusted for mobile */
