@@ -816,38 +816,31 @@ function showSlide(index, carouselId) {
 }
 
 function nextSlide() {
-    const activeCarousel = document.querySelector('.blog-post-carousel.active');
-    if (activeCarousel) {
-        const carouselId = activeCarousel.id;
-        showSlide(currentSlide + 1, carouselId);
-    }
+    const activeCarousel = document.querySelector('.blog-post-carousel[style*="block"]');
+    const carouselId = activeCarousel.id;
+    showSlide(currentSlide + 1, carouselId);
 }
 
 function prevSlide() {
-    const activeCarousel = document.querySelector('.blog-post-carousel.active');
-    if (activeCarousel) {
-        const carouselId = activeCarousel.id;
-        showSlide(currentSlide - 1, carouselId);
-    }
+    const activeCarousel = document.querySelector('.blog-post-carousel[style*="block"]');
+    const carouselId = activeCarousel.id;
+    showSlide(currentSlide - 1, carouselId);
 }
 
 function filterBlogsByMonth() {
     const selectedMonth = document.getElementById("month-select").value;
     const blogPosts = document.querySelectorAll('.blog-post-carousel');
 
-    // Hide all blog post carousels and remove 'active' class
+    // Hide all blog post carousels
     blogPosts.forEach(function(post) {
         post.style.display = 'none';
-        post.classList.remove('active');
     });
 
     // Show the selected month's blog post carousel
     if (selectedMonth) {
-        const selectedCarousel = document.getElementById(selectedMonth);
-        selectedCarousel.style.display = 'block';
-        selectedCarousel.classList.add('active'); // Add active class for easy selection
+        document.getElementById(`${selectedMonth}-carousel`).style.display = 'block';
         currentSlide = 0; // Reset slide to the first one
-        showSlide(currentSlide, selectedMonth); // Show the first slide
+        showSlide(currentSlide, `${selectedMonth}-carousel`); // Show the first slide
     }
 }
 </script>
