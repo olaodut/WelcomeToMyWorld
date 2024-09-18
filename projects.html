@@ -152,7 +152,47 @@
         <h2>Why Choose Us?</h2>
         <p>At <strong>Welcome To My World</strong>, we believe in helping businesses stay safe online without charging for our services. By providing these free audits, we aim to build trust, educate SMBs on cybersecurity best practices, and help you strengthen your defenses against cyber threats.</p>
         
-        <a href="contact.html" class="cta-button">Sign Up for a Free Audit</a>
+        <section id="contact" class="grid-item">
+    <h2>Contact</h2>
+    <form action="https://formspree.io/f/xrbzvgbz" method="POST">
+        <!-- Business Name -->
+        <label for="business-name">Business Name:</label>
+        <input type="text" id="business-name" name="business-name" required>
+
+        <!-- Contact Person's Name -->
+        <label for="name">Contact Person's Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <!-- Email -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Phone Number -->
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <!-- Website URL -->
+        <label for="website">Business Website (URL):</label>
+        <input type="url" id="website" name="website" placeholder="https://example.com" required>
+
+        <!-- Services Interested In -->
+        <label for="services">Services Interested In:</label>
+        <select id="services" name="services" required>
+            <option value="vulnerability-scanning">Vulnerability Scanning</option>
+            <option value="network-scanning">Network Scanning</option>
+            <option value="patch-management">Patch Management Recommendations</option>
+            <option value="security-recommendations">Security Recommendations</option>
+            <option value="full-audit">Full Audit</option>
+        </select>
+
+        <!-- Message/Additional Information -->
+        <label for="message">Additional Information:</label>
+        <textarea id="message" name="message" placeholder="Tell us more about your business or specific needs." required></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit">Send</button>
+    </form>
+</section>
     </div>
 
     <script>
