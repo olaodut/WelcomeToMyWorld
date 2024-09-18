@@ -282,6 +282,89 @@
             background-color: rgba(0, 0, 0, 0.8);
             color: #0F0;
         }
+								
+								
+								
+								/* Basic styling for carousel */
+.blog-post-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    background-color: #f4f4f4; /* Light background for each slide */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.carousel-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.carousel-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.carousel-item:hover {
+    background-color: #e9e9e9; /* Slight hover effect to highlight the blog post */
+}
+
+/* Carousel navigation buttons */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7); /* Darker button background for better contrast */
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: rgba(0, 0, 0, 0.9); /* Darker on hover */
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .carousel-item {
+        padding: 15px;
+    }
+
+    .carousel-prev, .carousel-next {
+        padding: 10px;
+        font-size: 1.2em;
+    }
+}
+								
+								
+								
     </style>
 </head>
 <body>
@@ -350,6 +433,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </p>
                 </div>
                 
+																        <!-- Controls for sliding -->
+        <button class="carousel-prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-next" onclick="nextSlide()">&#10095;</button>
+    </div>
                 <!-- Add blog posts here -->
                 <div id="september-2024" class="blog-post" style="display: none;">
 																	        <div class="carousel">
@@ -397,6 +484,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <p>Today’s culture—fueled by a desire for privacy. As these trends continue to evolve, we’ll see new, more advanced ways to protect our digital lives. Staying on top of these changes will help us navigate the future of cyber threats and keep our data safe.</p>
                 </div>
+																
+																        <!-- Controls for sliding -->
+        <button class="carousel-prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-next" onclick="nextSlide()">&#10095;</button>
+    </div>
+																
                 <div id="september-2024" class="blog-post" style="display: none;">
                     <p>September 2024</p>
                     <h3>The Online World: Expanding Connections, Shrinking Privacy</h3>
@@ -426,6 +519,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		
 		<p>The internet is changing the way we connect, but it’s also forcing us to rethink privacy and trust. In cybersecurity, the goal is finding the balance between engaging with the online world and safeguarding ourselves from its risks.</p>
                 </div>
+																
+																        <!-- Controls for sliding -->
+        <button class="carousel-prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-next" onclick="nextSlide()">&#10095;</button>
+    </div>
 
 		    <!-- Blog Num 4 -->
 		     <div id="september-2024" class="blog-post" style="display: none;">
@@ -463,6 +561,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			    <p>Understanding and defending against social engineering requires a mix of awareness, verification, and strong security practices. As tactics evolve, staying informed and proactive is essential.</p>
                     </div>
 		    
+						
+						        <!-- Controls for sliding -->
+        <button class="carousel-prev" onclick="prevSlide()">&#10094;</button>
+        <button class="carousel-next" onclick="nextSlide()">&#10095;</button>
+    </div>
+				
 						
 						<div id="september-2024" class="blog-post" style="display: none;">
 								<p>September 2024</p>
@@ -681,6 +785,59 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             document.getElementById(selectedMonth).style.display = 'block';
         }
     }
+</script>
+	
+	<script>
+	
+	let currentSlide = 0;
+
+function showSlide(index, carouselId) {
+    const carousel = document.querySelector(`#${carouselId} .carousel`);
+    const totalSlides = carousel.children.length;
+
+    // Ensure the index stays within bounds
+    if (index >= totalSlides) {
+        currentSlide = 0;
+    } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+    } else {
+        currentSlide = index;
+    }
+
+    // Move the carousel to show the selected slide
+    const offset = -currentSlide * 100; // Adjust based on slide width (100%)
+    carousel.style.transform = `translateX(${offset}%)`;
+}
+
+function nextSlide() {
+    const activeCarousel = document.querySelector('.blog-post-carousel[style*="block"]');
+    const carouselId = activeCarousel.id;
+    showSlide(currentSlide + 1, carouselId);
+}
+
+function prevSlide() {
+    const activeCarousel = document.querySelector('.blog-post-carousel[style*="block"]');
+    const carouselId = activeCarousel.id;
+    showSlide(currentSlide - 1, carouselId);
+}
+
+function filterBlogsByMonth() {
+    const selectedMonth = document.getElementById("month-select").value;
+    const blogPosts = document.querySelectorAll('.blog-post-carousel');
+
+    // Hide all blog post carousels
+    blogPosts.forEach(function(post) {
+        post.style.display = 'none';
+    });
+
+    // Show the selected month's blog post carousel
+    if (selectedMonth) {
+        document.getElementById(selectedMonth).style.display = 'block';
+        currentSlide = 0; // Reset slide to the first one
+        showSlide(currentSlide, selectedMonth); // Show the first slide
+    }
+}
+
 </script>
 	
 </body>
