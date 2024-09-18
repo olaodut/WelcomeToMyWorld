@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix Effect</title>
+    <title>Cybersecurity Audit - Welcome To My World</title>
     <style>
         /* Matrix effect canvas */
         #matrixBackground {
@@ -16,7 +16,7 @@
             background-color: black; /* Ensures the background is black */
         }
 
-        /* Body style */
+        /* Body and overall styling */
         body, html {
             height: 100%;
             margin: 0;
@@ -49,8 +49,44 @@
             z-index: 1; /* Ensures content stays in front of the canvas */
             position: relative;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
             border-radius: 10px;
+            max-width: 900px;
+        }
+
+        /* Headings and paragraph styles */
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        /* Sign up button */
+        .cta-button {
+            background-color: #00FF00; /* Bright green */
+            color: black;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #00cc00; /* Darker green on hover */
         }
     </style>
 </head>
@@ -64,9 +100,37 @@
 
     <!-- Main Content -->
     <div id="content">
-        <h1>Projects</h1>
+        <h1>Free Cybersecurity Audits</h1>
+        <p>Welcome to <strong>Welcome To My World</strong>, where we offer free cybersecurity audits to help small and medium-sized businesses (SMBs) secure their digital assets. Our mission is to provide you with a comprehensive security review at no cost, identifying vulnerabilities and offering actionable recommendations.</p>
+        
+        <h2>What We Offer</h2>
+        <p>Our audits cover key aspects of your business’s digital security, including:</p>
+        <ul>
+            <li>Vulnerability Scanning (OpenVAS)</li>
+            <li>Network Scanning (Zenmap/Nmap)</li>
+            <li>Patch Management Recommendations</li>
+            <li>Basic Security Recommendations</li>
+            <li>Optional Phishing Simulation and Awareness Training</li>
+        </ul>
+
+        <h2>How It Works</h2>
+        <p>Here’s how our free cybersecurity audit process works:</p>
+        <ol>
+            <li><strong>Initial Contact:</strong> Reach out to us through our website, LinkedIn, or via email, and fill out a simple intake form with your business details.</li>
+            <li><strong>Vulnerability and Network Scanning:</strong> We use tools like OpenVAS and Zenmap to assess your network for vulnerabilities, open ports, and misconfigurations.</li>
+            <li><strong>Report Generation:</strong> We compile our findings into a detailed PDF report, which includes security recommendations tailored to your business.</li>
+            <li><strong>Review and Recommendations:</strong> We walk you through the results and explain how to fix the issues we've identified.</li>
+            <li><strong>Follow-Up:</strong> We offer free follow-up audits after you've implemented our recommendations to ensure your security is up to standard.</li>
+        </ol>
+
+        <h2>Why Choose Us?</h2>
+        <p>At <strong>Welcome To My World</strong>, we believe in helping businesses stay safe online without charging for our services. By providing these free audits, we aim to build trust, educate SMBs on cybersecurity best practices, and help you strengthen your defenses against cyber threats.</p>
+
+        <h2>Get Started</h2>
+        <p>Ready to secure your business? Sign up for a free cybersecurity audit today. We’ll help you identify potential vulnerabilities and guide you on the path to better security.</p>
+        
+        <a href="contact.html" class="cta-button">Sign Up for a Free Audit</a>
     </div>
-    
 
     <script>
         // Get the canvas element and its drawing context
@@ -95,7 +159,7 @@
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
             // Set the font and color for the matrix effect
-            ctx.fillStyle = "#FF0000"; // Matrix red
+            ctx.fillStyle = "#00FF00"; // Matrix green
             ctx.font = fontSize + "px monospace"; // Use monospace font
 
             // Loop over drops to draw the characters
