@@ -29,32 +29,33 @@
         }
 
         /* Top navigation link */
-#homeLink {
-    position: fixed;
-    top: 10px; /* Moved further to the top */
-    left: 20px; /* Adjusted left padding */
-    font-family: 'PT Serif', serif;
-    font-size: 18px;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    z-index: 10; /* Ensures the link stays above the canvas */
-}
+        #homeLink {
+            position: fixed;
+            top: 10px; /* Moved further to the top */
+            left: 20px; /* Adjusted left padding */
+            font-family: 'PT Serif', serif;
+            font-size: 18px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            z-index: 10; /* Ensures the link stays above the canvas */
+        }
 
-#homeLink:hover {
-    text-decoration: underline;
-}
+        #homeLink:hover {
+            text-decoration: underline;
+        }
 
-/* Content container */
-#content {
-    z-index: 2; /* Ensures content stays in front of the canvas */
-    position: relative;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
-    border-radius: 10px;
-    max-width: 900px;
-    margin-top: 900px; /* Added margin to push content below Home link */
-}
+        /* Content container */
+        #content {
+            z-index: 2; /* Ensures content stays in front of the canvas */
+            position: relative;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+            border-radius: 10px;
+            max-width: 900px;
+            margin: 20px auto; /* Center the content and add vertical spacing */
+        }
+
         /* Headings and paragraph styles */
         h1 {
             font-size: 32px; /* Adjusted for mobile */
@@ -94,9 +95,12 @@
             }
 
             #homeLink {
-                top: 10px; /* Move home link a bit higher on mobile */
-                left: 20px;
                 font-size: 16px;
+            }
+
+            #content {
+                margin: 20px; /* Reduce margin for mobile */
+                padding: 10px; /* Adjust padding for smaller screens */
             }
         }
 
@@ -119,50 +123,49 @@
         }
         
         form {
-    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 600px; /* Restricting the form's width */
-    margin: 0 auto; /* Centering the form */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
+            background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px; /* Restricting the form's width */
+            margin: 0 auto; /* Centering the form */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
 
-form label {
-    display: block;
-    margin: 10px 0 5px; /* Adding space between label and input */
-    color: #fff; /* White text for labels */
-    font-weight: bold;
-}
+        form label {
+            display: block;
+            margin: 10px 0 5px; /* Adding space between label and input */
+            color: #fff; /* White text for labels */
+            font-weight: bold;
+        }
 
-form input, form textarea, form select {
-    width: 100%; /* Making inputs full-width */
-    padding: 10px;
-    margin-bottom: 15px; /* Space between inputs */
-    border: none;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
+        form input, form textarea, form select {
+            width: 100%; /* Making inputs full-width */
+            padding: 10px;
+            margin-bottom: 15px; /* Space between inputs */
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
-form button {
-    display: inline-block;
-    background-color: #00FF00; /* Button color */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
+        form button {
+            display: inline-block;
+            background-color: #00FF00; /* Button color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
 
-form button:hover {
-    background-color: #00FF00; /* Hover effect for button */
-}
+        form button:hover {
+            background-color: #00FF00; /* Hover effect for button */
+        }
 
-form input:focus, form textarea:focus, form select:focus {
-    outline: none;
-    border: 2px solid #00FF00; /* Green outline on focus */
-}
-        
+        form input:focus, form textarea:focus, form select:focus {
+            outline: none;
+            border: 2px solid #00FF00; /* Green outline on focus */
+        }
     </style>
 </head>
 <body>
@@ -185,6 +188,7 @@ form input:focus, form textarea:focus, form select:focus {
             <li>Network Scanning</li>
             <li>Patch Management Recommendations</li>
             <li>Security Recommendations</li>
+        </ul>
 
         <h2>How It Works</h2>
         <p>Here’s how our free cybersecurity audit process works:</p>
@@ -198,48 +202,63 @@ form input:focus, form textarea:focus, form select:focus {
 
         <h2>Why Choose Us?</h2>
         <p><strong>Welcome To My World</strong>, we believe in helping businesses stay safe online without charging for our services. By providing these free audits, we aim to build trust, educate businesses on cybersecurity best practices, and help you strengthen your defenses against cyber threats.</p>
-        
+
+        <h2>Audit Report</h2>
+        <p>Our audit reports provide a comprehensive analysis of your current security posture, including:</p>
+        <ul>
+            <li>Summary of findings</li>
+            <li>Detailed vulnerabilities discovered</li>
+            <li>Impact assessment</li>
+            <li>Recommended remediation steps</li>
+        </ul>
+        <p>You can download the latest audit report <a href="https://drive.google.com/file/d/1Xt00IZ1Btm7FBX25IEF8qusp1oFoCM83/view?usp=sharing" target="_blank" style="color: #00FF00;">here</a>.</p>
+
+        <h2>Case Study</h2>
+        <p>In our case studies, we highlight successful audits and the subsequent improvements made by our clients:</p>
+        <p><strong>Client X:</strong> After conducting a vulnerability scan, we identified critical weaknesses in their network configuration. By implementing our recommendations, Client X improved their security posture significantly and reduced their risk of breaches.</p>
+        <p>You can view the detailed case study <a href="https://drive.google.com/file/d/1qduMUAt-D_5e7K9NVzepT8Il2JSSvbGz/view?usp=sharing" target="_blank" style="color: #00FF00;">here</a>.</p>
+
         <section id="contact" class="grid-item">
-    <h2>Contact</h2>
-    <form action="https://formspree.io/f/xrbzvgbz" method="POST">
-        <!-- Business Name -->
-        <label for="business-name">Business Name:</label>
-        <input type="text" id="business-name" name="business-name" required>
+            <h2>Contact</h2>
+            <form action="https://formspree.io/f/xrbzvgbz" method="POST">
+                <!-- Business Name -->
+                <label for="business-name">Business Name:</label>
+                <input type="text" id="business-name" name="business-name" required>
 
-        <!-- Contact Person's Name -->
-        <label for="name">Contact Person's Name:</label>
-        <input type="text" id="name" name="name" required>
+                <!-- Contact Person's Name -->
+                <label for="name">Contact Person's Name:</label>
+                <input type="text" id="name" name="name" required>
 
-        <!-- Email -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+                <!-- Email -->
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
 
-        <!-- Phone Number -->
-        <label for="phone">Phone Number:</label>
-        <input type="tel" id="phone" name="phone" required>
+                <!-- Phone Number -->
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
 
-        <!-- Website URL -->
-        <label for="website">Business Website (URL):</label>
-        <input type="url" id="website" name="website" placeholder="https://example.com" required>
+                <!-- Website URL -->
+                <label for="website">Business Website (URL):</label>
+                <input type="url" id="website" name="website" placeholder="https://example.com" required>
 
-        <!-- Services Interested In -->
-        <label for="services">Services Interested In:</label>
-        <select id="services" name="services" required>
-            <option value="vulnerability-scanning">Vulnerability Scanning</option>
-            <option value="network-scanning">Network Scanning</option>
-            <option value="patch-management">Patch Management Recommendations</option>
-            <option value="security-recommendations">Security Recommendations</option>
-            <option value="full-audit">Full Audit</option>
-        </select>
+                <!-- Services Interested In -->
+                <label for="services">Services Interested In:</label>
+                <select id="services" name="services" required>
+                    <option value="vulnerability-scanning">Vulnerability Scanning</option>
+                    <option value="network-scanning">Network Scanning</option>
+                    <option value="patch-management">Patch Management Recommendations</option>
+                    <option value="security-recommendations">Security Recommendations</option>
+                    <option value="full-audit">Full Audit</option>
+                </select>
 
-        <!-- Message/Additional Information -->
-        <label for="message">Additional Information:</label>
-        <textarea id="message" name="message" placeholder="Tell us more about your business or specific needs." required></textarea>
+                <!-- Message/Additional Information -->
+                <label for="message">Additional Information:</label>
+                <textarea id="message" name="message" placeholder="Tell us more about your business or specific needs." required></textarea>
 
-        <!-- Submit Button -->
-        <button type="submit">Send</button>
-    </form>
-</section>
+                <!-- Submit Button -->
+                <button type="submit">Send</button>
+            </form>
+        </section>
     </div>
 
     <script>
