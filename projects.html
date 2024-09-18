@@ -116,6 +116,52 @@
         .cta-button:hover {
             background-color: #00cc00; /* Darker green on hover */
         }
+        
+        form {
+    background-color: rgba(0, 0, 0, 0.8); /* Transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px; /* Restricting the form's width */
+    margin: 0 auto; /* Centering the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+form label {
+    display: block;
+    margin: 10px 0 5px; /* Adding space between label and input */
+    color: #fff; /* White text for labels */
+    font-weight: bold;
+}
+
+form input, form textarea, form select {
+    width: 100%; /* Making inputs full-width */
+    padding: 10px;
+    margin-bottom: 15px; /* Space between inputs */
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form button {
+    display: inline-block;
+    background-color: #1abc9c; /* Button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+form button:hover {
+    background-color: #16a085; /* Hover effect for button */
+}
+
+form input:focus, form textarea:focus, form select:focus {
+    outline: none;
+    border: 2px solid #1abc9c; /* Green outline on focus */
+}
+        
     </style>
 </head>
 <body>
