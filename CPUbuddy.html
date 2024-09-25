@@ -16,15 +16,16 @@
         }
 
         /* Top navigation link */
-        #homeLink {
+         #homeLink {
             position: fixed;
-            top: 20px;
-            left: 170px;
+            top: 10px; /* Moved further to the top */
+            left: 20px; /* Adjusted left padding */
             font-family: 'PT Serif', serif;
             font-size: 18px;
             color: white;
             text-decoration: none;
             font-weight: bold;
+            z-index: 10; /* Ensures the link stays above the canvas */
         }
 
         #homeLink:hover {
